@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Trabalho Um</string>
+    <string name="cadastrar">Cadastrar</string> 
+    <string name="action_novo" >Novo</string>
+    <string name="title_activity_cadastro">CadastroActivity</string>
+    <string name="nome">Nome</string>
+	<string name="descricao">Descrição</string>
+	<string name="local">Local do Evento</string>
+	<string name="salvar">Salvar</string>
+    <string name="data">Data do Evento</string>   
+    <string name="ano2014">2014</string>
+    <string name="ano2015">2015</string>	
+    
+
+</resources>

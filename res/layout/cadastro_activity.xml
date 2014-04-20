@@ -1,0 +1,87 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0, 1" >
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nome" />
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descricao" />
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:id="@+id/descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+ 	<TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/data" />
+	</TableRow>
+	
+ 	<TableRow>
+        <EditText
+            android:id="@+id/data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </TableRow>
+    
+	<TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/local" />
+	</TableRow>
+	
+	<TableRow>
+	    <Spinner
+ 		    android:id="@+id/local"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content" /> 
+	</TableRow>
+    
+	<TableRow>
+	    <RadioButton
+	        android:id="@+id/data2014"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ano2014" />
+	     </TableRow>
+	     
+ 	<TableRow>
+	    <RadioButton
+	        android:id="@+id/data2015"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ano2015" />
+	</TableRow>
+	
+	<TableRow>
+    <Button
+        android:id="@+id/cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onCadastrarClicked"
+        android:text="@string/cadastrar" />
+	</TableRow>
+</TableLayout>

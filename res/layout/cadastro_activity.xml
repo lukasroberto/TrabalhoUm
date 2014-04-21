@@ -61,19 +61,33 @@
 	</TableRow>
     
 	<TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tipodealerta" />
+	</TableRow>
+	
+	<TableRow>
+	    <Spinner
+ 		    android:id="@+id/tipodealerta"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content" /> 
+	</TableRow>
+	
+	<TableRow>
 	    <RadioButton
-	        android:id="@+id/data2014"
+	        android:id="@+id/ativo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/ano2014" />
+	        android:text="@string/ativo" />
 	     </TableRow>
 	     
  	<TableRow>
 	    <RadioButton
-	        android:id="@+id/data2015"
+	        android:id="@+id/inativo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/ano2015" />
+	        android:text="@string/inativo" />
 	</TableRow>
 	
 	<TableRow>

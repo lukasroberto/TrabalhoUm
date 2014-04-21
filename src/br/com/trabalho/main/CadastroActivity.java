@@ -30,6 +30,15 @@ public class CadastroActivity extends Activity {
 		Spinner locais = (Spinner) findViewById(R.id.local);
 		locais.setAdapter(adapterLocais);
 		
+		String[] arrayLocaisDois = { "Alarme", "Vibrar", "Vibrar e tocar", "Desativado" };
+		ArrayAdapter<String> adapterLocaisDois = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, arrayLocaisDois);
+
+		Spinner tipoDeAlerta = (Spinner) findViewById(R.id.tipodealerta);
+		tipoDeAlerta.setAdapter(adapterLocaisDois);
+		
+		
+		
 	} 
 	public void onCadastrarClicked(View view){
 	

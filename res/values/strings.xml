@@ -10,8 +10,9 @@
 	<string name="local">Local do Evento</string>
 	<string name="salvar">Salvar</string>
     <string name="data">Data do Evento</string>   
-    <string name="ano2014">2014</string>
-    <string name="ano2015">2015</string>	
+    <string name="ativo">Ativo</string>
+    <string name="inativo">Inativo</string>
+    <string name="tipodealerta">Tipo de Alerta</string>
     
 
 </resources>

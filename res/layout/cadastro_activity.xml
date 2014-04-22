@@ -82,22 +82,19 @@
 	    	
 	</TableRow>
 	
-	<TableRow>
+	<RadioGroup >
 	    <RadioButton
 	        android:id="@+id/ativo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/ativo"/>
-	    
-	   </TableRow>
-	     
- 	<TableRow>
+	        android:text="@string/ativo"/>	          
+ 	
 	    <RadioButton
 	        android:id="@+id/inativo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/inativo"/>
-	</TableRow>
+	</RadioGroup>
 	
 	
 	<TableRow>

@@ -14,7 +14,7 @@ public class Agenda {
 
 	@Override
 	public String toString() {
-		return nome + "                    "+ data;
+		return "Evento: " + nome + "\n" + "Data: " + data;
 	} 
 	
 }

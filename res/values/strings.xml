@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Trabalho Um</string>
+    <string name="app_name">Agenda de Eventos</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="action_novo">Novo</string>
     <string name="title_activity_cadastro">Cadastro de Eventos</string>
     <string name="nome">Nome</string>
     <string name="descricao">Descrição</string>
     <string name="local">Local do Evento</string>
-    <string name="salvar">Salvar</string>
     <string name="ativaralerta">Ativar Alerta</string>
     <string name="data">Data do Evento</string>
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
-    <string name="tipodealerta">Tipo de Alerta</string>
-    <string name="evento">Eventos</string>
 
 
 </resources>

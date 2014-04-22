@@ -59,28 +59,23 @@
  		    android:layout_width="wrap_content"
  		    android:layout_height="wrap_content" /> 
 	</TableRow>
-    
-	<TableRow>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tipodealerta" />
+	
+		<TableRow >
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/ativaralerta"/>
+	    	
 	</TableRow>
 	
-	<TableRow>
+				<TableRow>
 	    <Spinner
  		    android:id="@+id/tipodealerta"
  		    android:layout_width="wrap_content"
  		    android:layout_height="wrap_content" /> 
 	</TableRow>
 	
-	<TableRow >
-	    <TextView 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/ativaralerta"/>
-	 </TableRow>	
-	
+		
 	<RadioGroup >	
 	    <RadioButton
 	        android:id="@+id/ativo"
@@ -95,6 +90,7 @@
 	        android:text="@string/inativo" />
 	</RadioGroup>
 	
+
 	<TableRow>
     <Button
         android:id="@+id/cadastrar"

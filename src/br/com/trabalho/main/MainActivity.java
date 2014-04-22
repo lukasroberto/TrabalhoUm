@@ -3,8 +3,8 @@ package br.com.trabalho.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.trabalho.dao.AgendaDao;
-import br.com.trabalho.entidades.Agenda;
+import br.com.trabalho.dao.PessoaDao;
+import br.com.trabalho.entidades.Pessoa;
 
 import com.example.appandroid.R;
 
@@ -31,11 +31,11 @@ public class MainActivity extends Activity {
 
 
 
-		List<Agenda> pessoas = AgendaDao.getInstancia().listarAgenda();
+		List<Pessoa> pessoas = PessoaDao.getInstancia().listar();
 
-		ArrayAdapter<Agenda> adapter = new ArrayAdapter<Agenda>(this,
+		ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(this,
 				android.R.layout.simple_list_item_1, pessoas);
-		ListView listView = (ListView) findViewById(R.id.listaEvento);
+		ListView listView = (ListView) findViewById(R.id.lista);
 		listView.setAdapter(adapter);
 
 	}

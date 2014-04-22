@@ -3,8 +3,8 @@
 
     <string name="app_name">Trabalho Um</string>
     <string name="cadastrar">Cadastrar</string> 
-    <string name="action_novo" >Novo</string>
-    <string name="title_activity_cadastro">CadastroActivity</string>
+    <string name="action_novo" >Novo Evento</string>
+    <string name="title_activity_cadastro">Cadastro dos Eventos</string>
     <string name="nome">Nome</string>
 	<string name="descricao">Descrição</string>
 	<string name="local">Local do Evento</string>
@@ -13,6 +13,6 @@
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
     <string name="tipodealerta">Tipo de Alerta</string>
-    
+    <string name="evento">Evento</string>
 
 </resources>

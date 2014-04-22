@@ -1,53 +1,57 @@
 package br.com.trabalho.main;
 
-import br.com.trabalho.dao.PessoaDao;
-import br.com.trabalho.entidades.Pessoa;
-
-import com.example.appandroid.R;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import br.com.trabalho.dao.AgendaDao;
+import br.com.trabalho.entidades.Agenda;
+
+import com.example.appandroid.R;
 
 public class CadastroActivity extends Activity {
 
 	EditText nome;
+	EditText data;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.cadastro_activity); 
+		setContentView(R.layout.cadastro_activity);
 		this.nome = (EditText) findViewById(R.id.nome);
-		
+		this.data = (EditText) findViewById(R.id.data);
+
 		String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
-		ArrayAdapter<String> adapterLocais = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, arrayLocais);
+		spinner(arrayLocais, (Spinner) findViewById(R.id.local));
 
-		Spinner locais = (Spinner) findViewById(R.id.local);
-		locais.setAdapter(adapterLocais);
-		
-		String[] arrayLocaisDois = { "Alarme", "Vibrar", "Vibrar e tocar", "Desativado" };
-		ArrayAdapter<String> adapterLocaisDois = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, arrayLocaisDois);
+		String[] arrayLocaisDois = { "Alarme", "Vibrar", "Vibrar e tocar",
+				"Desativado" };
+		spinner(arrayLocaisDois, (Spinner) findViewById(R.id.tipodealerta));
 
-		Spinner tipoDeAlerta = (Spinner) findViewById(R.id.tipodealerta);
-		tipoDeAlerta.setAdapter(adapterLocaisDois);
-		
-		
-		
-	} 
-	public void onCadastrarClicked(View view){
-	
-	Pessoa pessoa = new Pessoa(10l,nome.getText().toString()); 
-	PessoaDao.getInstancia().cadastrar(pessoa);
-	
-	Intent acessarLista = new Intent(this, MainActivity.class); 
-	startActivity(acessarLista);
 	}
+
+	public void spinner(String[] dados, Spinner spinner) {
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, dados);
+
+		spinner.setAdapter(adapter);
+	}
+
+	public void onCadastrarClicked(View view) {
+
+		Agenda agenda = new Agenda(nome.getText().toString(), data
+				.getText().toString());
+		AgendaDao.getInstancia().cadastrar(agenda);
+
+		Intent acessarLista = new Intent(this, MainActivity.class);
+		startActivity(acessarLista);
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.cadastro, menu);

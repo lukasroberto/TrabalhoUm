@@ -30,7 +30,7 @@ public final class R {
         public static final int data=0x7f080003;
         public static final int descricao=0x7f080002;
         public static final int inativo=0x7f080007;
-        public static final int lista=0x7f080000;
+        public static final int listaEvento=0x7f080000;
         public static final int local=0x7f080004;
         public static final int nome=0x7f080001;
         public static final int novo=0x7f08000a;
@@ -51,6 +51,7 @@ public final class R {
         public static final int cadastrar=0x7f050001;
         public static final int data=0x7f050008;
         public static final int descricao=0x7f050005;
+        public static final int evento=0x7f05000c;
         public static final int inativo=0x7f05000a;
         public static final int local=0x7f050006;
         public static final int nome=0x7f050004;

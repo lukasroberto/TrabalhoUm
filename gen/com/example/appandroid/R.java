@@ -52,6 +52,7 @@ public final class R {
         public static final int cadastrar=0x7f050001;
         public static final int data=0x7f050009;
         public static final int descricao=0x7f050005;
+        public static final int evento=0x7f05000d;
         public static final int inativo=0x7f05000b;
         public static final int local=0x7f050006;
         public static final int nome=0x7f050004;

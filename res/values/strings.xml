@@ -14,5 +14,7 @@
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
     <string name="tipodealerta">Tipo de Alerta</string>
+    <string name="evento">Eventos</string>
+
 
 </resources>

@@ -17,12 +17,14 @@ import android.widget.Spinner;
 public class CadastroActivity extends Activity {
 
 	EditText nome;
+	EditText data;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cadastro_activity);
 		this.nome = (EditText) findViewById(R.id.nome);
+		this.data = (EditText) findViewById(R.id.data);
 
 		String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
 		spinner(arrayLocais, (Spinner) findViewById(R.id.local));
@@ -44,7 +46,7 @@ public class CadastroActivity extends Activity {
 
 	public void onCadastrarClicked(View view) {
 
-		Agenda agenda = new Agenda(10l, nome.getText().toString());
+		Agenda agenda = new Agenda(nome.getText().toString(), data.getText().toString());
 		AgendaDao.getInstancia().cadastrar(agenda);
 
 		Intent acessarLista = new Intent(this, MainActivity.class);

@@ -29,8 +29,7 @@ public class CadastroActivity extends Activity {
 		String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
 		spinner(arrayLocais, (Spinner) findViewById(R.id.local));
 
-		String[] arrayLocaisDois = { "Alarme", "Vibrar", "Vibrar e tocar",
-				"Desativado" };
+		String[] arrayLocaisDois = { "Alarme", "Vibrar", "Alarme e Vibrar" };
 		spinner(arrayLocaisDois, (Spinner) findViewById(R.id.tipodealerta));
 
 	}

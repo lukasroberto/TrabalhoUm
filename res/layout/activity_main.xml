@@ -17,9 +17,12 @@
             android:text="@string/data" />
     </TableRow>
 
-    <ListView
-        android:id="@+id/lista"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <TableRow>
+
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableRow>
 
 </TableLayout>

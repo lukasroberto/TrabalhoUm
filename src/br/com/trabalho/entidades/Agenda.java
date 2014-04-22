@@ -6,7 +6,7 @@ public class Agenda {
 	private String nome;
 	private String data;
     
-	public Agenda(String data, String nome) {
+	public Agenda(String nome, String data) {
 		
 		this.nome = nome;
 		this.data = data;
@@ -17,7 +17,4 @@ public class Agenda {
 		return nome + "                    "+ data;
 	} 
 	
-	
-	
-
 }

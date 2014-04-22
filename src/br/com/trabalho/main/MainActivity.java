@@ -1,26 +1,18 @@
 package br.com.trabalho.main;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import br.com.trabalho.dao.PessoaDao;
-import br.com.trabalho.entidades.Pessoa;
-
-import com.example.appandroid.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
+import br.com.trabalho.dao.AgendaDao;
+import br.com.trabalho.entidades.Agenda;
+
+import com.example.appandroid.R;
 
 public class MainActivity extends Activity {
 
@@ -29,12 +21,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		List<Agenda> agendas = AgendaDao.getInstancia().listar();
 
-
-		List<Pessoa> pessoas = PessoaDao.getInstancia().listar();
-
-		ArrayAdapter<Pessoa> adapter = new ArrayAdapter<Pessoa>(this,
-				android.R.layout.simple_list_item_1, pessoas);
+		ArrayAdapter<Agenda> adapter = new ArrayAdapter<Agenda>(this,
+				android.R.layout.simple_list_item_1, agendas);
 		ListView listView = (ListView) findViewById(R.id.lista);
 		listView.setAdapter(adapter);
 

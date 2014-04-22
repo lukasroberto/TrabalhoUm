@@ -1,11 +1,11 @@
 package br.com.trabalho.entidades;
 
-public class Pessoa { 
+public class Agenda { 
 	
 	private Long id; 
 	private String nome;
     
-	public Pessoa(Long id, String nome) {
+	public Agenda(Long id, String nome) {
 		
 		this.id = id;
 		this.nome = nome;

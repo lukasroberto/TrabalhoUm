@@ -10,6 +10,7 @@
 	<string name="local">Local do Evento</string>
 	<string name="salvar">Salvar</string>
     <string name="data">Data do Evento</string>   
+    <string name="ativaralerta">Ativar Alerta</string>
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
     <string name="tipodealerta">Tipo de Alerta</string>

@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:stretchColumns="0, 1" >
 
-        <ListView
-            android:id="@+id/lista"
+        <TextView
+            android:id="@+id/nome"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:text="@string/nome" />
 
 </TableLayout>

@@ -1,16 +1,12 @@
 package br.com.trabalho.main;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import br.com.trabalho.dao.AgendaDao;
-import br.com.trabalho.entidades.Agenda;
+import android.view.TextureView;
+import android.widget.TextView;
 
 import com.example.appandroid.R;
 
@@ -21,12 +17,18 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		List<Agenda> agendas = AgendaDao.getInstancia().listar();
+		Bundle parametros = getIntent().getExtras();
+		String evento = parametros.getString("nome");
 
-		ArrayAdapter<Agenda> adapter = new ArrayAdapter<Agenda>(this,
-				android.R.layout.simple_list_item_1, agendas);
-		ListView listView = (ListView) findViewById(R.id.lista);
-		listView.setAdapter(adapter);
+		TextView labelNome = (TextView) findViewById(R.id.nome);
+		labelNome.setText(evento);
+
+		// List<Agenda> agendas = AgendaDao.getInstancia().listar();
+
+		// ArrayAdapter<Agenda> adapter = new ArrayAdapter<Agenda>(this,
+		// android.R.layout.simple_list_item_1, agendas);
+		// ListView listView = (ListView) findViewById(R.id.lista);
+		// listView.setAdapter(adapter);
 
 	}
 

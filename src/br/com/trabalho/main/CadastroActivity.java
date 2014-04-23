@@ -23,6 +23,7 @@ public class CadastroActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cadastro_activity);
+		
 		this.nome = (EditText) findViewById(R.id.nome);
 		this.data = (EditText) findViewById(R.id.data);
 
@@ -41,6 +42,16 @@ public class CadastroActivity extends Activity {
 
 		spinner.setAdapter(adapterLocais);
 
+	}
+	
+	public void passarParametro(View view){
+		
+		Intent intent = new Intent(this, MainActivity.class);
+		Bundle parametros = new Bundle();
+		parametros.putString("nome", nome.getText().toString());
+		intent.putExtras(parametros);
+		startActivity(intent);
+		
 	}
 
 	public void onCadastrarClicked(View view) {

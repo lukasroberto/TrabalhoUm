@@ -5,13 +5,15 @@
     android:stretchColumns="0, 1" >
 
     <TableRow>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nome" />
+            android:text="@string/valor" />
     </TableRow>
 
     <TableRow>
+
         <EditText
             android:id="@+id/nome"
             android:layout_width="match_parent"
@@ -19,84 +21,82 @@
     </TableRow>
 
     <TableRow>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/descricao" />
+            android:text="@string/qtd" />
     </TableRow>
 
     <TableRow>
+
         <EditText
             android:id="@+id/descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </TableRow>
 
- 	<TableRow>
+    <TableRow>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/data" />
-	</TableRow>
-	
- 	<TableRow>
-        <EditText
+    </TableRow>
+
+    <TableRow>
+
+        <Button
             android:id="@+id/data"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:onClick="selecionarData"
+            android:text="@string/data" />
     </TableRow>
-    
-	<TableRow>
+
+    <TableRow>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/local" />
-	</TableRow>
-	
-	<TableRow>
-	    <Spinner
- 		    android:id="@+id/local"
- 		    android:layout_width="wrap_content"
- 		    android:layout_height="wrap_content" /> 
-	</TableRow>
-	
-		<TableRow >
-	    <TextView 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/ativaralerta"/>
-	    	
-	</TableRow>
-	
-				<TableRow>
-	    <Spinner
- 		    android:id="@+id/tipodealerta"
- 		    android:layout_width="wrap_content"
- 		    android:layout_height="wrap_content" /> 
-	</TableRow>
-	
-		
-	<RadioGroup >	
-	    <RadioButton
-	        android:id="@+id/ativo"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/ativo" />	     
-	      	
-	    <RadioButton
-	        android:id="@+id/inativo"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/inativo" />
-	</RadioGroup>
-	
+            android:text="@string/produto" />
+    </TableRow>
 
-	<TableRow>
-    <Button
-        android:id="@+id/cadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onCadastrarClicked"
-        android:text="@string/cadastrar" />
-	</TableRow>
+    <TableRow>
+
+        <Spinner
+            android:id="@+id/local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cidade" />
+    </TableRow>
+
+    <TableRow>
+
+        <Spinner
+            android:id="@+id/tipodealerta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <RadioGroup>
+    </RadioGroup>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/cadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="passarParametro"
+            android:text="@string/cadastrar" />
+    </TableRow>
+
 </TableLayout>

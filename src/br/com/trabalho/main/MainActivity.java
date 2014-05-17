@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.TextureView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.appandroid.R;
@@ -20,7 +21,7 @@ public class MainActivity extends Activity {
 		Bundle parametros = getIntent().getExtras();
 		String evento = parametros.getString("nome");
 
-		TextView labelNome = (TextView) findViewById(R.id.nome);
+		TextView labelNome = (TextView) findViewById(R.id.teste);
 		labelNome.setText(evento);
 
 		// List<Agenda> agendas = AgendaDao.getInstancia().listar();

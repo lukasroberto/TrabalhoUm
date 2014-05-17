@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Agenda de Eventos</string>
-    <string name="cadastrar">Cadastrar</string>
-    <string name="action_novo">Novo</string>
-    <string name="title_activity_cadastro">Cadastro de Eventos</string>
-    <string name="nome">Nome</string>
-    <string name="descricao">Descrição</string>
-    <string name="local">Local do Evento</string>
-    <string name="ativaralerta">Ativar Alerta</string>
-    <string name="data">Data do Evento</string>
+    <string name="app_name">Lista de Vendas</string>
+    <string name="cadastrar">Salvar</string>
+    <string name="action_novo">Cadastrar Venda</string>
+    <string name="action_lista">Visualizar Vendas</string>
+    <string name="title_activity_cadastro">Cadastro de Vendas</string>
+    <string name="valor">Valor de Venda</string>
+    <string name="qtd">Quantidade</string>
+    <string name="produto">Selecione o Produto</string>
+    <string name="cidade">Cidade</string>
+    <string name="data">Data da Venda</string>
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
 

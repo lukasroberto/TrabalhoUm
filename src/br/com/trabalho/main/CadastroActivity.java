@@ -1,16 +1,25 @@
 package br.com.trabalho.main;
 
-import br.com.trabalho.dao.AgendaDao;
-import br.com.trabalho.entidades.Agenda;
+import java.util.Calendar;
+
+import junit.framework.Protectable;
+
+import br.com.trabalho.dao.VendasDao;
+import br.com.trabalho.entidades.Vendas;
 
 import com.example.appandroid.R;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.Dialog;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -18,14 +27,25 @@ public class CadastroActivity extends Activity {
 
 	EditText nome;
 	EditText data;
+	int dia,mes,ano;
+	
+	Button dataSelecionada;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cadastro_activity);
 		
+		Calendar dataAtual = Calendar.getInstance();
+		dia = dataAtual.get(Calendar.DAY_OF_MONTH);
+		mes = dataAtual.get(Calendar.MONTH);
+		ano = dataAtual.get(Calendar.YEAR);
+		
+		dataSelecionada = (Button) findViewById(R.id.data);
+		dataSelecionada.setText(dia+"/"+mes+"/"+ano);
+		
 		this.nome = (EditText) findViewById(R.id.nome);
-		this.data = (EditText) findViewById(R.id.data);
+		//this.data = (EditText) findViewById(R.id.data);
 
 		String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
 		spinner(arrayLocais, (Spinner) findViewById(R.id.local));
@@ -35,6 +55,32 @@ public class CadastroActivity extends Activity {
 
 	}
 
+	public void selecionarData(View view){
+		
+		showDialog(view.getId());
+	}
+@Override	
+protected Dialog onCreateDialog(int id){
+	
+	OnDateSetListener listener = new OnDateSetListener() {
+		
+		@Override
+		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+			dataSelecionada.setText(dayOfMonth+"/"+monthOfYear+"/"+year);		
+		}
+	};
+	
+	if (R.id.data == id) {
+		
+		return new DatePickerDialog(this, listener, ano, mes, dia);
+	}
+	
+	return null;
+	
+	
+}
+	
+	
 	public void spinner(String[] dados, Spinner spinner) {
 
 		ArrayAdapter<String> adapterLocais = new ArrayAdapter<String>(this,
@@ -56,8 +102,8 @@ public class CadastroActivity extends Activity {
 
 	public void onCadastrarClicked(View view) {
 
-		Agenda agenda = new Agenda(nome.getText().toString(), data.getText().toString());
-		AgendaDao.getInstancia().cadastrar(agenda);
+		Vendas agenda = new Vendas(nome.getText().toString(), data.getText().toString());
+		VendasDao.getInstancia().cadastrar(agenda);
 
 		Intent acessarLista = new Intent(this, MainActivity.class);
 		startActivity(acessarLista);

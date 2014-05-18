@@ -7,14 +7,14 @@ import br.com.trabalho.entidades.Vendas;
 
 public class VendasDao { 
 	private static VendasDao   instancia;
-	private static List<Vendas> agendas = new ArrayList<Vendas>(); 
+	private static List<Vendas> vendas = new ArrayList<Vendas>(); 
 	
 private VendasDao(){ 
 	
 } 
 public List<Vendas>listar(){
 
-	return agendas;
+	return vendas;
 }
 	
 	public static VendasDao  getInstancia(){ 
@@ -24,7 +24,7 @@ public List<Vendas>listar(){
 	return instancia; 
 	}  
 	public void cadastrar(Vendas agenda){
-		agendas.add(agenda);
+		vendas.add(agenda);
 		
 		
 	}

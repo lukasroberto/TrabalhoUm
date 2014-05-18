@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		Bundle parametros = getIntent().getExtras();
-		String evento = parametros.getString("nome");
+		String evento = parametros.getString("precoVenda");
 
 		TextView labelNome = (TextView) findViewById(R.id.teste);
 		labelNome.setText(evento);

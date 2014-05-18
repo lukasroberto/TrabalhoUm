@@ -13,6 +13,8 @@
     <string name="data">Data da Venda</string>
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
-
+    <string name="title_activity_lista_vendas_activit">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

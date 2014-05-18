@@ -16,17 +16,20 @@ import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class CadastroActivity extends Activity {
 
-	EditText nome;
+	EditText precoVenda;
 	EditText data;
+	EditText qtd;
 	int dia,mes,ano;
 	
 	Button dataSelecionada;
@@ -44,8 +47,8 @@ public class CadastroActivity extends Activity {
 		dataSelecionada = (Button) findViewById(R.id.data);
 		dataSelecionada.setText(dia+"/"+mes+"/"+ano);
 		
-		this.nome = (EditText) findViewById(R.id.nome);
-		//this.data = (EditText) findViewById(R.id.data);
+		this.precoVenda = (EditText) findViewById(R.id.precoVenda);
+		this.qtd = (EditText) findViewById(R.id.qtd);
 
 		String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
 		spinner(arrayLocais, (Spinner) findViewById(R.id.local));
@@ -75,8 +78,7 @@ protected Dialog onCreateDialog(int id){
 		return new DatePickerDialog(this, listener, ano, mes, dia);
 	}
 	
-	return null;
-	
+	return null;	
 	
 }
 	
@@ -92,27 +94,58 @@ protected Dialog onCreateDialog(int id){
 	
 	public void passarParametro(View view){
 		
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, ListaVendasActivity.class);
 		Bundle parametros = new Bundle();
-		parametros.putString("nome", nome.getText().toString());
+		parametros.putString("precoVenda", precoVenda.getText().toString());
 		intent.putExtras(parametros);
 		startActivity(intent);
 		
 	}
 
-	public void onCadastrarClicked(View view) {
+	public void cadastrarVenda(View view) {
+		
+		Vendas venda = new Vendas();
+		venda.setPrecoVenda(Float.parseFloat(precoVenda.getText().toString()));
+		venda.setData(dataSelecionada.getText().toString());
+		venda.setQtd(qtd.getText().toString());
+		
+		VendasDao.getInstancia().cadastrar(venda);
+		
+		Toast.makeText(this, "Venda Cadastrada com sucesso", Toast.LENGTH_LONG).show();
+		
 
-		Vendas agenda = new Vendas(nome.getText().toString(), data.getText().toString());
-		VendasDao.getInstancia().cadastrar(agenda);
+		//Vendas agenda = new Vendas(precoVenda.getText().toString(), data.getText().toString());
+		//VendasDao.getInstancia().cadastrar(agenda);
 
-		Intent acessarLista = new Intent(this, MainActivity.class);
-		startActivity(acessarLista);
+		//Intent acessarLista = new Intent(this, MainActivity.class);
+		//startActivity(acessarLista);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.cadastro, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		int id = item.getItemId();
+
+		switch (id) {
+		case R.id.novo:
+			Intent irParaCadastro = new Intent(this, CadastroActivity.class);
+			startActivity(irParaCadastro);
+			break;
+		case R.id.lista:
+			Intent irParaLista = new Intent(this, ListaVendasActivity.class);
+			startActivity(irParaLista);
+			break;
+		default:
+			break;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 }

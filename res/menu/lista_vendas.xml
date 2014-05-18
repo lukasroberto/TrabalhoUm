@@ -1,4 +1,7 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.appandroid.ListaVendasActivitActivity" >
 
     <item
         android:id="@+id/novo"
@@ -12,5 +15,4 @@
         android:showAsAction="never"
         android:title="@string/action_lista"
        />
-
 </menu>

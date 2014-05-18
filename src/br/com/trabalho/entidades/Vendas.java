@@ -14,6 +14,7 @@ public class Vendas {
 	private List<Cidade> cidade;
 	
 	
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,10 +51,7 @@ public class Vendas {
 	public void setCidade(List<Cidade> cidade) {
 		this.cidade = cidade;
 	}
-	@Override
-	public String toString() {
-		return this.precoVenda.toString();
-	}
+
 
 
 }

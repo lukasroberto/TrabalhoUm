@@ -7,12 +7,12 @@ import br.com.trabalho.entidades.Vendas;
 
 public class VendasDao { 
 	private static VendasDao   instancia;
-	private static List<Vendas> vendas = new ArrayList<Vendas>(); 
+	private static ArrayList<Vendas> vendas = new ArrayList<Vendas>(); 
 	
 private VendasDao(){ 
 	
 } 
-public List<Vendas>listar(){
+public ArrayList<Vendas>listar(){
 
 	return vendas;
 }

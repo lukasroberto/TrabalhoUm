@@ -101,6 +101,11 @@ protected Dialog onCreateDialog(int id){
 		startActivity(intent);
 		
 	}
+	
+	public void buscaProduto(View view) {
+		Intent irParaCadastro = new Intent(this, ListaProdutos.class);
+		startActivity(irParaCadastro);		
+	}
 
 	public void cadastrarVenda(View view) {
 		

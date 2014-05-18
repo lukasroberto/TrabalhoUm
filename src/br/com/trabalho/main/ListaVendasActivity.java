@@ -1,92 +1,53 @@
 package br.com.trabalho.main;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import br.com.trabalho.dao.VendasDao;
 import br.com.trabalho.entidades.Vendas;
 
 import com.example.appandroid.R;
 
-	public class ListaVendasActivity extends Activity {
-		List<Vendas> vendas = VendasDao.getInstancia().listar();
+public class ListaVendasActivity extends Activity {
 
-		
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.lista_vendas);
-			
-			//Bundle parametros = getIntent().getExtras();
-			//String evento = parametros.getString("precoVenda");
+	private ListView listView;
+	private AdapterListView adapterListView;
+	private ArrayList<Vendas> vendas = VendasDao.getInstancia().listar();
 
-			//TextView labelNome = (TextView) findViewById(R.id.precoVenda);
-			//labelNome.setText(evento);
-			
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.lista_vendas);
 
-			ArrayAdapter<Vendas> adapter = new ArrayAdapter<Vendas>(this,
-			android.R.layout.simple_list_item_1, vendas);
-			ListView listView = (ListView) findViewById(R.id.listaVendas);
-			listView.setAdapter(adapter);
+		listView = (ListView) findViewById(R.id.listaVendas);
+		createListView();
+	}
 
-		}
-	
-		
-		
-		
-		
-		
-		public View getView(int position, View convertView, ViewGroup parent) {
-			
-			View linha = convertView;
-			ArmazenadorRestaurante armazenador = null;
-			
-			if (linha == null) {
-				LayoutInflater inflater = getLayoutInflater();
-				linha = inflater.inflate(R.layout.lista_vendas, parent, false);
-				armazenador = new ArmazenadorRestaurante(linha);
-				linha.setTag(armazenador);
-			} else {
-				armazenador = (ArmazenadorRestaurante) linha.getTag();
-			}
-			
-			armazenador.popularFormulario(vendas.get(position));
-			
-			return linha;
-		}
-		
-		static class ArmazenadorRestaurante {
-			private TextView nome = null;
-			private TextView endereco = null;
-			private ImageView icone = null;
-			
-			ArmazenadorRestaurante(View linha) {
-				nome = (TextView) linha.findViewById(R.id.precoVenda);
-				endereco = (TextView) linha.findViewById(R.id.qtd);
-			}
-		
-		void popularFormulario(Vendas r) {
-			nome.setText(r.getPrecoVenda().toString());
-			endereco.setText(r.getQtd());
-		
-		}
-		}
-		
-		
-		
-		
-		
+	private void createListView() {
+		// Cria o adapter
+		adapterListView = new AdapterListView(this, vendas);
+
+		// Define o Adapter
+		listView.setAdapter(adapterListView);
+		// Cor quando a lista é selecionada para ralagem.
+		listView.setCacheColorHint(Color.TRANSPARENT);
+	}
+
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// Pega o item que foi selecionado.
+		Vendas item = adapterListView.getItem(arg2);
+		// Demostração
+		// Toast.makeText(this, "Você Clicou em: " + item.getTexto(),
+		// Toast.LENGTH_LONG).show();
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,7 +55,6 @@ import com.example.appandroid.R;
 		return true;
 	}
 
-	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -114,5 +74,7 @@ import com.example.appandroid.R;
 		}
 
 		return super.onOptionsItemSelected(item);
+
 	}
-	}
+
+}

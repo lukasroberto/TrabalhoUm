@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     android:stretchColumns="0, 1" >
 
+    
+        <TableRow>
+
+        <Button
+            android:id="@+id/busca_produto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buscaProduto"
+            android:text="@string/produto" />
+    </TableRow>
     <TableRow>
 
         <TextView

@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CadastroActivity extends Activity {
@@ -50,13 +51,26 @@ public class CadastroActivity extends Activity {
 		this.precoVenda = (EditText) findViewById(R.id.precoVenda);
 		this.qtd = (EditText) findViewById(R.id.qtd);
 
-		String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
-		spinner(arrayLocais, (Spinner) findViewById(R.id.local));
+		//String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
+		//spinner(arrayLocais, (Spinner) findViewById(R.id.local));
 
-		String[] arrayLocaisDois = { "Alarme", "Vibrar", "Alarme e Vibrar" };
-		spinner(arrayLocaisDois, (Spinner) findViewById(R.id.tipodealerta));
-
-	}
+		//String[] arrayLocaisDois = { "Alarme", "Vibrar", "Alarme e Vibrar" };
+		//spinner(arrayLocaisDois, (Spinner) findViewById(R.id.tipodealerta));
+		
+		
+	  
+		  Bundle params = getIntent().getExtras();  
+		   
+		  if(params!=null)
+		  {   
+		   String descricaoProduto = params.getString("descricaoProduto");
+		   TextView labelDescricao = (TextView) findViewById(R.id.busca_produto); 
+		   labelDescricao.setText(descricaoProduto);
+		   //setContentView(textView);
+		  }		  
+		  
+		    }
+	
 
 	public void selecionarData(View view){
 		

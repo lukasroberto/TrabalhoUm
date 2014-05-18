@@ -1,44 +1,37 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="0, 1" >
+    android:background="#ffffff"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
 
-    
-        <TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dedede"
+            android:onClick="buscaProduto"
+            android:text="@string/produto_selecionado"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dedede"
+            android:text="@string/qtd"
+            android:textColor="#000" />
+    </TableRow>
+
+    <TableRow>
 
         <Button
             android:id="@+id/busca_produto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#ffffff"
             android:onClick="buscaProduto"
-            android:text="@string/produto" />
-    </TableRow>
-    <TableRow>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/valor" />
-    </TableRow>
-
-    <TableRow>
-
-        <EditText
-            android:id="@+id/precoVenda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/qtd" />
-    </TableRow>
-
-    <TableRow>
+            android:text="@string/selecionar" />
 
         <EditText
             android:id="@+id/qtd"
@@ -51,7 +44,30 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/data" />
+            android:layout_span="2"
+            android:background="#dedede"
+            android:text="@string/valor"
+            android:textColor="#000" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/precoVenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:background="#dedede"
+            android:text="@string/data"
+            android:textColor="#000" />
     </TableRow>
 
     <TableRow>
@@ -60,6 +76,7 @@
             android:id="@+id/data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_span="2"
             android:onClick="selecionarData"
             android:text="@string/data" />
     </TableRow>
@@ -69,44 +86,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/produto" />
+            android:layout_span="2"
+            android:background="#dedede"
+            android:text="@string/cidade"
+            android:textColor="#000" />
     </TableRow>
 
     <TableRow>
-
-        <Spinner
-            android:id="@+id/local"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
+        <Button
+            android:id="@+id/busca_produto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cidade" />
-    </TableRow>
-
-    <TableRow>
-
-        <Spinner
-            android:id="@+id/tipodealerta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </TableRow>
-
-    <RadioGroup>
-    </RadioGroup>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/cadastrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="cadastrarVenda"
-            android:text="@string/cadastrar" />
+            android:background="#ffffff"
+            android:onClick="buscaProduto"
+            android:text="@string/selecionar" />
     </TableRow>
 
 </TableLayout>

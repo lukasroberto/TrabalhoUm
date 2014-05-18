@@ -84,10 +84,18 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 		// Pega o item que foi selecionado.
 		Produtos prod = adapterListViewProdutos.getItem(arg2);
 		// Demostração
-		Toast.makeText(this, "Você Clicou em: " + prod.getDescricao() + " " + prod.getId() + " " + prod.getPrecoUnitario(),
-		Toast.LENGTH_LONG).show();
+		//Toast.makeText(this, "Você Clicou em: " + prod.getDescricao() + " " + prod.getId() + " " + prod.getPrecoUnitario(),
+		//Toast.LENGTH_LONG).show();
 		
+			Intent intent = new Intent(this, CadastroActivity.class);
+			Bundle parametros = new Bundle();
+			parametros.putString("descricaoProduto", prod.getDescricao().toString());
+			parametros.putString("precoUnitario", prod.getPrecoUnitario().toString());
 
+			intent.putExtras(parametros);
+			startActivity(intent);
+			
+		
 	}
 
 	public class AdapterListView extends BaseAdapter {

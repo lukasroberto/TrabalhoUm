@@ -8,7 +8,7 @@
         android:id="@+id/search"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_span="4" >
+        android:hint="@string/digiteData">
 
         <requestFocus />
     </EditText>

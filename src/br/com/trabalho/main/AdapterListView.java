@@ -75,7 +75,7 @@ public class AdapterListView extends BaseAdapter {
 		{
 			for (Vendas wp : arraylist) 
 			{
-				if (wp.getQtd().toLowerCase(Locale.getDefault()).contains(charText)) 
+				if (wp.getData().toLowerCase(Locale.getDefault()).contains(charText)) 
 				{
 					vendas.add(wp);
 				}

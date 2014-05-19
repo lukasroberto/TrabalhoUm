@@ -7,9 +7,10 @@
     <string name="action_lista">Visualizar Vendas</string>
     <string name="title_activity_cadastro">Cadastro de Vendas</string>
     <string name="valor">Valor de Venda</string>
-    <string name="qtdVendidaList">Quantidade: </string>
+    <string name="qtdVendidaList">Quantidade : </string>
+    <string name="digiteData">Digite a Data para filtrar</string>
     <string name="qtd">Quantidade</string>
-    <string name="precoVendaList">Preço: </string>
+    <string name="precoVendaList">Preço : </string>
     <string name="precoUnitario">Preço Un</string>
     <string name="id_produto">Código</string>
     <string name="selecionar">Selecionar</string>
@@ -17,7 +18,7 @@
     <string name="produto_selecionado">Produto</string>
     <string name="cidade">Cidade</string>
     <string name="data">Data da Venda</string>
-    <string name="dataList">Data da Venda: </string>
+    <string name="dataList">Data da Venda : </string>
     <string name="ativo">Ativo</string>
     <string name="inativo">Inativo</string>
     <string name="title_activity_lista_vendas_activit">MainActivity</string>

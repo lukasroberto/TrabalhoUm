@@ -34,6 +34,10 @@
             android:name="br.com.trabalho.main.ListaProdutos"
             android:label="@string/title_activity_lista_produtos" >
         </activity>
+        <activity
+            android:name="com.example.appandroid.ListaCidade"
+            android:label="@string/title_activity_lista_cidade" >
+        </activity>
     </application>
 
 </manifest>

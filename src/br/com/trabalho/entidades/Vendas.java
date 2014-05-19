@@ -14,7 +14,6 @@ public class Vendas {
 	private List<Cidade> cidade;
 	
 	
-	
 	public Long getId() {
 		return id;
 	}

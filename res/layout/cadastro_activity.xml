@@ -11,32 +11,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#dedede"
-            android:onClick="buscaProduto"
-            android:text="@string/produto_selecionado"
+            android:text="@string/id_produto"
             android:textColor="#000" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_span="4"
             android:background="#dedede"
-            android:text="@string/qtd"
+            android:text="@string/produto_selecionado"
             android:textColor="#000" />
     </TableRow>
 
     <TableRow>
 
+        <EditText
+            android:id="@+id/id_produto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/busca_produto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_span="4"
             android:background="#ffffff"
             android:onClick="buscaProduto"
             android:text="@string/selecionar" />
-
-        <EditText
-            android:id="@+id/qtd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </TableRow>
 
     <TableRow>
@@ -45,6 +46,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
+            android:background="#dedede"
+            android:text="@string/precoUnitario"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:background="#dedede"
+            android:text="@string/qtd"
+            android:textColor="#000" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/preco_unitario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="2" />
+
+        <EditText
+            android:id="@+id/qtd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="3" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
             android:background="#dedede"
             android:text="@string/valor"
             android:textColor="#000" />
@@ -56,7 +91,7 @@
             android:id="@+id/precoVenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="2" />
+            android:layout_span="5" />
     </TableRow>
 
     <TableRow>
@@ -64,7 +99,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="2"
+            android:layout_span="5"
             android:background="#dedede"
             android:text="@string/data"
             android:textColor="#000" />
@@ -76,7 +111,8 @@
             android:id="@+id/data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="2"
+            android:layout_span="5"
+            android:background="#ffffff"
             android:onClick="selecionarData"
             android:text="@string/data" />
     </TableRow>
@@ -86,20 +122,60 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="2"
+            android:layout_span="5"
             android:background="#dedede"
             android:text="@string/cidade"
             android:textColor="#000" />
     </TableRow>
 
     <TableRow>
-        <Button
-            android:id="@+id/busca_produto"
+
+        <EditText
+            android:id="@+id/id_cidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_span="1" />
+
+        <Button
+            android:id="@+id/busca_cidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="4"
             android:background="#ffffff"
-            android:onClick="buscaProduto"
+            android:onClick="buscaCidade"
             android:text="@string/selecionar" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#dedede"
+            android:text="@string/uf_cidade"
+            android:textColor="#000" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/uf_cidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/cadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#dedede"
+            android:onClick="cadastrarVenda"
+            android:text="@string/cadastrar" />
     </TableRow>
 
 </TableLayout>

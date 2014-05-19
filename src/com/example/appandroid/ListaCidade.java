@@ -1,4 +1,4 @@
-package br.com.trabalho.main;
+package com.example.appandroid;
 
 import java.util.ArrayList;
 
@@ -13,29 +13,26 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import br.com.trabalho.dao.VendasDao;
-import br.com.trabalho.entidades.Produtos;
+import br.com.trabalho.entidades.Cidade;
+import br.com.trabalho.main.CadastroActivity;
 
-import com.example.appandroid.R;
-
-public class ListaProdutos extends Activity implements OnItemClickListener {
+public class ListaCidade extends Activity implements OnItemClickListener {
 
 	private ListView listView;
-	private ArrayList<Produtos> prod = VendasDao.getInstancia()
-			.listarProdutos();
-	private AdapterListView adapterListViewProdutos;
+	private ArrayList<Cidade> cidades = VendasDao.getInstancia()
+			.listarCidades();
+	private AdapterListView adapterListViewCidades;
 	private Intent intent;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lista_produtos);
+		setContentView(R.layout.lista_cidade);
 
-		listView = (ListView) findViewById(R.id.listaprodutos);
+		listView = (ListView) findViewById(R.id.lista_cidades);
 		listView.setOnItemClickListener(this);
 
 		createListView();
@@ -43,44 +40,44 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 
 	private void createListView() {
 
-		if (prod.size() == 0) {
-			Produtos produto1 = new Produtos();
-			produto1.setId(1l);
-			produto1.setPrecoUnitario(1.5f);
-			produto1.setDescricao("Banana");
-			VendasDao.getInstancia().cadastrarProduto(produto1);
+		if (cidades.size() == 0) {
+			Cidade cidade1 = new Cidade();
+			cidade1.setId(1l);
+			cidade1.setUf("SP");
+			cidade1.setNome("S�o jo�o da Boa Vista");
+			VendasDao.getInstancia().cadastrarCidade(cidade1);
 
-			Produtos produto2 = new Produtos();
-			produto2.setId(2l);
-			produto2.setPrecoUnitario(1.9f);
-			produto2.setDescricao("Morango");
-			VendasDao.getInstancia().cadastrarProduto(produto2);
+			Cidade cidade2 = new Cidade();
+			cidade2.setId(2l);
+			cidade2.setUf("SP");
+			cidade2.setNome("Vargem Grande do Sul");
+			VendasDao.getInstancia().cadastrarCidade(cidade2);
 
-			Produtos produto3 = new Produtos();
-			produto3.setId(3l);
-			produto3.setPrecoUnitario(2.5f);
-			produto3.setDescricao("Ma�a");
-			VendasDao.getInstancia().cadastrarProduto(produto3);
+			Cidade cidade3 = new Cidade();
+			cidade3.setId(3l);
+			cidade3.setUf("MG");
+			cidade3.setNome("Andradas");
+			VendasDao.getInstancia().cadastrarCidade(cidade3);
 
-			Produtos produto4 = new Produtos();
-			produto4.setId(4l);
-			produto4.setPrecoUnitario(2.2f);
-			produto4.setDescricao("Goiaba");
-			VendasDao.getInstancia().cadastrarProduto(produto4);
+			Cidade cidade4 = new Cidade();
+			cidade4.setId(4l);
+			cidade4.setUf("SP");
+			cidade4.setNome("Aguai");
+			VendasDao.getInstancia().cadastrarCidade(cidade4);
 		}
 
 		// Cria o adapter
-		adapterListViewProdutos = new AdapterListView(this, prod);
+		adapterListViewCidades = new AdapterListView(this, cidades);
 
 		// Define o Adapter
-		listView.setAdapter(adapterListViewProdutos);
+		listView.setAdapter(adapterListViewCidades);
 		// Cor quando a lista é selecionada para ralagem.
 		listView.setCacheColorHint(Color.TRANSPARENT);
 	}
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// Pega o item que foi selecionado.
-		Produtos prod = adapterListViewProdutos.getItem(arg2);
+		Cidade cidade = adapterListViewCidades.getItem(arg2);
 		// Demostração
 		// Toast.makeText(this, "Você Clicou em: " + prod.getDescricao() + " "
 		// + prod.getId() + " " + prod.getPrecoUnitario(),
@@ -90,13 +87,11 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 			intent = new Intent(this, CadastroActivity.class);
 		}
 		Bundle parametros = new Bundle();
-		parametros
-				.putString("descricaoProduto", prod.getDescricao().toString());
-		parametros.putString("precoUnitario", prod.getPrecoUnitario()
-				.toString());
-		parametros.putString("idProduto", prod.getId().toString());
+		parametros.putString("idCidade", cidade.getId().toString());
+		parametros.putString("nomeCidade", cidade.getNome().toString());
+		parametros.putString("ufCidade", cidade.getUf().toString());
 
-		parametros.putString("tipo", "produto");
+		parametros.putString("tipo", "cidade");
 
 		intent.putExtras(parametros);
 		startActivity(intent);
@@ -106,11 +101,11 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 	public class AdapterListView extends BaseAdapter {
 
 		private LayoutInflater mInflater;
-		private ArrayList<Produtos> prod;
+		private ArrayList<Cidade> cidades;
 
-		public AdapterListView(Context context, ArrayList<Produtos> prod) {
+		public AdapterListView(Context context, ArrayList<Cidade> cidade) {
 			// Itens que preencheram o listview
-			this.prod = prod;
+			this.cidades = cidade;
 			// responsavel por pegar o Layout do item.
 			mInflater = LayoutInflater.from(context);
 		}
@@ -121,7 +116,7 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 		 * @return
 		 */
 		public int getCount() {
-			return prod.size();
+			return cidades.size();
 		}
 
 		/**
@@ -130,8 +125,8 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 		 * @param position
 		 * @return
 		 */
-		public Produtos getItem(int position) {
-			return prod.get(position);
+		public Cidade getItem(int position) {
+			return cidades.get(position);
 		}
 
 		/**
@@ -146,20 +141,20 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 
 		public View getView(int position, View view, ViewGroup parent) {
 			// Pega o item de acordo com a posção.
-			Produtos item = prod.get(position);
+			Cidade cidade = cidades.get(position);
 			// infla o layout para podermos preencher os dados
-			view = mInflater.inflate(R.layout.item_listview_produtos, null);
+			view = mInflater.inflate(R.layout.item_listview_cidade, null);
 
 			// atravez do layout pego pelo LayoutInflater, pegamos cada id
 			// relacionado
 			// ao item e definimos as informações.
-			((TextView) view.findViewById(R.id.descricao_produtos))
-					.setText(item.getDescricao());
+			((TextView) view.findViewById(R.id.nome_cidade)).setText(cidade
+					.getNome());
 			// ((ImageView)
 			// view.findViewById(R.id.imagemview)).setImageResource(R.drawable.venda);
 
 			return view;
 		}
 	}
-	
+
 }

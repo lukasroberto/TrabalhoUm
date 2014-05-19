@@ -5,6 +5,8 @@
 package br.com.trabalho.main;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -25,55 +27,60 @@ import com.example.appandroid.R;
 public class AdapterListView extends BaseAdapter {
 
     private LayoutInflater mInflater;
-    private ArrayList<Vendas> venads;
+    private List<Vendas> vendas = null;
+	private ArrayList<Vendas> arraylist;
+
 
     public AdapterListView(Context context, ArrayList<Vendas> itens) {
         //Itens que preencheram o listview
-        this.venads = itens;
+        this.vendas = itens;
         //responsavel por pegar o Layout do item.
         mInflater = LayoutInflater.from(context);
+		this.arraylist = new ArrayList<Vendas>();
+		this.arraylist.addAll(itens);
     }
 
-    /**
-     * Retorna a quantidade de itens
-     *
-     * @return
-     */
     public int getCount() {
-        return venads.size();
+        return vendas.size();
     }
 
-    /**
-     * Retorna o item de acordo com a posicao dele na tela.
-     *
-     * @param position
-     * @return
-     */
+
     public Vendas getItem(int position) {
-        return venads.get(position);
+        return vendas.get(position);
     }
 
-    /**
-     * Sem implementação
-     *
-     * @param position
-     * @return
-     */
+
     public long getItemId(int position) {
         return position;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
-        //Pega o item de acordo com a posção.
-    	Vendas item = venads.get(position);
-        //infla o layout para podermos preencher os dados
+    	//Vendas item = vendas.get(position);
         view = mInflater.inflate(R.layout.item_listview_vendas, null);
 
-        //atravez do layout pego pelo LayoutInflater, pegamos cada id relacionado
-        //ao item e definimos as informações.
-        ((TextView) view.findViewById(R.id.text)).setText(item.getQtd());
+        ((TextView) view.findViewById(R.id.listPrecoVenda)).setText(vendas.get(position).getPrecoVenda().toString());
+        ((TextView) view.findViewById(R.id.listQtd)).setText(vendas.get(position).getQtd());
+        ((TextView) view.findViewById(R.id.listData)).setText(vendas.get(position).getData().toString());
         ((ImageView) view.findViewById(R.id.imagemview)).setImageResource(R.drawable.venda);
 
         return view;
     }
+    public void filter(String charText) {
+		charText = charText.toLowerCase(Locale.getDefault());
+		vendas.clear();
+		if (charText.length() == 0) {
+			vendas.addAll(arraylist);
+		} 
+		else 
+		{
+			for (Vendas wp : arraylist) 
+			{
+				if (wp.getQtd().toLowerCase(Locale.getDefault()).contains(charText)) 
+				{
+					vendas.add(wp);
+				}
+			}
+		}
+		notifyDataSetChanged();
+	}
 }

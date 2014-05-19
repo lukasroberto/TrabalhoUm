@@ -1,15 +1,19 @@
 package br.com.trabalho.main;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import br.com.trabalho.dao.VendasDao;
 import br.com.trabalho.entidades.Vendas;
@@ -18,8 +22,9 @@ import com.example.appandroid.R;
 
 public class ListaVendasActivity extends Activity {
 
-	private ListView listView;
+	private ListView list;
 	private AdapterListView adapterListView;
+	private EditText editsearch;
 	private ArrayList<Vendas> vendas = VendasDao.getInstancia().listar();
 
 	@Override
@@ -27,19 +32,50 @@ public class ListaVendasActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista_vendas);
 
-		listView = (ListView) findViewById(R.id.listaVendas);
-		createListView();
-	}
+		list = (ListView) findViewById(R.id.listaVendas);
 
-	private void createListView() {
+
 		// Cria o adapter
 		adapterListView = new AdapterListView(this, vendas);
 
 		// Define o Adapter
-		listView.setAdapter(adapterListView);
+		list.setAdapter(adapterListView);
 		// Cor quando a lista é selecionada para ralagem.
-		listView.setCacheColorHint(Color.TRANSPARENT);
+		list.setCacheColorHint(Color.TRANSPARENT);
+		
+
+		
+		// Locate the EditText in listview_main.xml
+		editsearch = (EditText) findViewById(R.id.search);
+
+		// Capture Text in EditText
+		editsearch.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+				adapterListView.filter(text);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1,
+					int arg2, int arg3) {
+				// TODO Auto-generated method stub
+			}
+
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+			}
+		});
 	}
+		
+		
+		
+		
+
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// Pega o item que foi selecionado.

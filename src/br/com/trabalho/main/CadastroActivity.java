@@ -56,12 +56,6 @@ public class CadastroActivity extends Activity {
 		this.descricaoProduto = (EditText) findViewById(R.id.descricao_produtos);
 		this.precoUnitarioProduto = (EditText) findViewById(R.id.preco_unitario);
 
-		// String[] arrayLocais = { "Minha casa", "Facul", "Chacara Bentivi" };
-		// spinner(arrayLocais, (Spinner) findViewById(R.id.local));
-
-		// String[] arrayLocaisDois = { "Alarme", "Vibrar", "Alarme e Vibrar" };
-		// spinner(arrayLocaisDois, (Spinner) findViewById(R.id.tipodealerta));
-
 		Bundle parametros = getIntent().getExtras();
 
 		if (parametros != null) {
@@ -130,15 +124,6 @@ public class CadastroActivity extends Activity {
 
 	}
 
-	public void spinner(String[] dados, Spinner spinner) {
-
-		ArrayAdapter<String> adapterLocais = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, dados);
-
-		spinner.setAdapter(adapterLocais);
-
-	}
-
 	public void buscaProduto(View view) {
 		Intent irParaProdutos = new Intent(this, ListaProdutos.class);
 		startActivity(irParaProdutos);
@@ -156,16 +141,16 @@ public class CadastroActivity extends Activity {
 		venda.setData(dataSelecionada.getText().toString());
 		venda.setQtd(qtd.getText().toString());
 
-		Produtos produtoVendido = new Produtos();
-		produtoVendido.setId(Long.parseLong(idProduto.getText().toString()));
-		produtoVendido.setPrecoUnitario(Float.parseFloat(precoUnitarioProduto.getText().toString()));
-		produtoVendido.setDescricao(descricaoProduto.getText().toString());
+		//Produtos produtoVendido = new Produtos();
+		//produtoVendido.setId(Long.parseLong(idProduto.getText().toString()));
+		//produtoVendido.setPrecoUnitario(Float.parseFloat(precoUnitarioProduto.getText().toString()));
+		//produtoVendido.setDescricao(descricaoProduto.getText().toString());
 
 		//venda.setProduto(produtoVendido);
 
 		VendasDao.getInstancia().cadastrar(venda);
 
-		Toast.makeText(this, "Venda Cadastrada com sucesso", Toast.LENGTH_LONG)
+		Toast.makeText(this, "preco "+venda.getPrecoVenda() + "data "+venda.getData()+"qtd "+venda.getQtd(), Toast.LENGTH_LONG)
 				.show();
 
 		// Vendas agenda = new Vendas(precoVenda.getText().toString(),

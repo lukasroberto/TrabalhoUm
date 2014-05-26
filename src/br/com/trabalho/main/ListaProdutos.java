@@ -2,6 +2,7 @@ package br.com.trabalho.main;
 
 import java.util.ArrayList;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +26,18 @@ import com.example.appandroid.R;
 public class ListaProdutos extends Activity implements OnItemClickListener {
 
 	private ListView listView;
-	private ArrayList<Produtos> prod = VendasDao.getInstancia()
-			.listarProdutos();
+	private ArrayList<Produtos> prod = VendasDao.getInstancia().listarProdutos();
 	private AdapterListView adapterListViewProdutos;
-	private Intent intent;
+	private String nomeCidade;
+	private String idCidade;
+	private String ufCidade;
+	private String data;
+	private String qtd;
+	private String idProduto;
+	private String descricaoProduto;
+	private String precoUnitario;
+	private float precoTotal;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,22 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 
 		listView = (ListView) findViewById(R.id.listaprodutos);
 		listView.setOnItemClickListener(this);
+		
+		
+		Bundle parametros = getIntent().getExtras();
+
+		if (parametros != null) {
+
+				idCidade = parametros.getString("idCidade");
+				nomeCidade = parametros.getString("nomeCidade");
+				ufCidade = parametros.getString("ufCidade");
+				data = parametros.getString("data");
+				qtd = parametros.getString("qtd");
+
+				
+				//precoTotal = Float.parseFloat(precoUnitario)* Integer.parseInt(qtd);
+
+		}
 
 		createListView();
 	}
@@ -86,17 +111,19 @@ public class ListaProdutos extends Activity implements OnItemClickListener {
 		// + prod.getId() + " " + prod.getPrecoUnitario(),
 		// Toast.LENGTH_LONG).show();
 
-		if (intent == null) {
-			intent = new Intent(this, CadastroActivity.class);
-		}
+			Intent intent = new Intent(this, CadastroActivity.class);
+		
 		Bundle parametros = new Bundle();
-		parametros
-				.putString("descricaoProduto", prod.getDescricao().toString());
-		parametros.putString("precoUnitario", prod.getPrecoUnitario()
-				.toString());
+		parametros.putString("descricaoProduto", prod.getDescricao().toString());
+		parametros.putString("precoUnitario", prod.getPrecoUnitario().toString());
 		parametros.putString("idProduto", prod.getId().toString());
+		
+		parametros.putString("idCidade", idCidade);
+		parametros.putString("nomeCidade", nomeCidade);
+		parametros.putString("ufCidade", ufCidade);
+		parametros.putString("data", data);
+		parametros.putString("qtd", qtd);
 
-		parametros.putString("tipo", "produto");
 
 		intent.putExtras(parametros);
 		startActivity(intent);

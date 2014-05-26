@@ -31,30 +31,18 @@ public class ListaVendasActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista_vendas);
-
 		list = (ListView) findViewById(R.id.listaVendas);
-
-
-		// Cria o adapter
 		adapterListView = new AdapterListView(this, vendas);
-
-		// Define o Adapter
 		list.setAdapter(adapterListView);
-		// Cor quando a lista é selecionada para ralagem.
 		list.setCacheColorHint(Color.TRANSPARENT);
-		
-
-		
-		// Locate the EditText in listview_main.xml
 		editsearch = (EditText) findViewById(R.id.search);
-
-		// Capture Text in EditText
 		editsearch.addTextChangedListener(new TextWatcher() {
 
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				// TODO Auto-generated method stub
-				String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+				String text = editsearch.getText().toString()
+						.toLowerCase(Locale.getDefault());
 				adapterListView.filter(text);
 			}
 
@@ -71,18 +59,10 @@ public class ListaVendasActivity extends Activity {
 			}
 		});
 	}
-		
-		
-		
-		
-
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// Pega o item que foi selecionado.
+		// Quando clicar na lista de vendas
 		Vendas item = adapterListView.getItem(arg2);
-		// Demostração
-		// Toast.makeText(this, "Você Clicou em: " + item.getTexto(),
-		// Toast.LENGTH_LONG).show();
 	}
 
 	@Override

@@ -6,7 +6,7 @@
     <string name="action_novo">Cadastrar Venda</string>
     <string name="action_lista">Visualizar Vendas</string>
     <string name="title_activity_cadastro">Cadastro de Vendas</string>
-    <string name="valor">Valor de Venda</string>
+    <string name="valor">Total da Venda</string>
     <string name="qtdVendidaList">Quantidade : </string>
     <string name="digiteData">Digite a Data para filtrar</string>
     <string name="qtd">Quantidade</string>

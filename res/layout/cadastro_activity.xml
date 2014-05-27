@@ -28,7 +28,8 @@
         <EditText
             android:id="@+id/id_produto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:enabled="false" />
 
         <Button
             android:id="@+id/busca_produto"
@@ -65,13 +66,16 @@
             android:id="@+id/preco_unitario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="2" />
+            android:layout_span="2"
+            android:enabled="false" />
 
         <EditText
             android:id="@+id/qtd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="3" />
+            android:layout_span="3" 
+            android:inputType="number"
+            android:enabled="false"/>
     </TableRow>
 
     <TableRow>
@@ -91,7 +95,8 @@
             android:id="@+id/precoVenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="5" />
+            android:layout_span="5"
+            android:enabled="false" />
     </TableRow>
 
     <TableRow>
@@ -134,7 +139,8 @@
             android:id="@+id/id_cidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="1" />
+            android:layout_span="1" 
+            android:enabled="false"/>
 
         <Button
             android:id="@+id/busca_cidade"
@@ -163,7 +169,8 @@
             android:id="@+id/uf_cidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_span="5" />
+            android:layout_span="5" 
+            android:enabled="false"/>
     </TableRow>
 
     <TableRow>

@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.trabalho.dao.VendasDao;
+import br.com.trabalho.entidades.Cidade;
+import br.com.trabalho.entidades.Produtos;
 import br.com.trabalho.entidades.Vendas;
 
 import com.example.appandroid.R;
@@ -96,24 +98,24 @@ public class CadastroActivity extends Activity {
 			String ufCidade = parametros.getString("ufCidade");
 			TextView labelUfCidade = (TextView) findViewById(R.id.uf_cidade);
 			labelUfCidade.setText(ufCidade);
+
+			String totalVenda = parametros.getString("totalVenda");
+			TextView labelTotalVenda = (TextView) findViewById(R.id.precoVenda);
+			labelTotalVenda.setText(totalVenda);
 			// setContentView(textView);
 
 		}
-		
-
+		if (!precoUnitarioProduto.getText().toString().equals("")) {
+			qtd.setEnabled(true);
+		}
 
 		qtd.addTextChangedListener(new TextWatcher() {
 
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				// TODO Auto-generated method stub
-				
-				if (precoUnitarioProduto.getText().toString().equals("")) {
-					selecioneProduto();
-				}else{
-					int quantidade = Integer.parseInt(qtd.getText().toString());
-					valorTotalVenda(quantidade);		
-				}
+				int quantidade = Integer.parseInt(qtd.getText().toString());
+				valorTotalVenda(quantidade);
 			}
 
 			@Override
@@ -128,22 +130,16 @@ public class CadastroActivity extends Activity {
 				// TODO Auto-generated method stub
 			}
 		});
-		
+
 	}
 
-	public void selecioneProduto() {
-		Toast.makeText(this, "Selecione um produto antes!", Toast.LENGTH_LONG).show();	
-		TextView qtd = (TextView) findViewById(R.id.qtd);
-		qtd.setText("");
-	}
-	public void valorTotalVenda(int qtd) {		
-		Float totalVenda = Float.parseFloat(precoUnitarioProduto.getText().toString()) * qtd;
-		
+	public void valorTotalVenda(int qtd) {
+		Float totalVenda = Float.parseFloat(precoUnitarioProduto.getText()
+				.toString()) * qtd;
+
 		TextView precoVenda = (TextView) findViewById(R.id.precoVenda);
-		precoVenda.setText("R$"+totalVenda.toString());
+		precoVenda.setText(totalVenda.toString());
 	}
-	
-
 
 	public void selecionarData(View view) {
 
@@ -200,6 +196,7 @@ public class CadastroActivity extends Activity {
 		parametros.putString("precoUnitario", precoUnitarioProduto.getText()
 				.toString());
 		parametros.putString("data", dataSelecionada.getText().toString());
+		parametros.putString("totalVenda", precoVenda.getText().toString());
 
 		irParaCidades.putExtras(parametros);
 
@@ -208,29 +205,36 @@ public class CadastroActivity extends Activity {
 
 	public void cadastrarVenda(View view) {
 
-		Vendas venda = new Vendas();
-		venda.setPrecoVenda(Float.parseFloat(precoVenda.getText().toString()));
-		venda.setData(dataSelecionada.getText().toString());
-		venda.setQtd(qtd.getText().toString());
+		if (validaCampos()) {
 
-		// Produtos produtoVendido = new Produtos();
-		// produtoVendido.setId(Long.parseLong(idProduto.getText().toString()));
-		// produtoVendido.setPrecoUnitario(Float.parseFloat(precoUnitarioProduto.getText().toString()));
-		// produtoVendido.setDescricao(descricaoProduto.getText().toString());
+			Vendas venda = new Vendas();
+			venda.setPrecoVenda(Float.parseFloat(precoVenda.getText()
+					.toString()));
+			venda.setData(dataSelecionada.getText().toString());
+			venda.setQtd(qtd.getText().toString());
 
-		// venda.setProduto(produtoVendido);
+			Produtos produtoVendido = new Produtos();
+			produtoVendido
+					.setId(Long.parseLong(idProduto.getText().toString()));
+			produtoVendido.setPrecoUnitario(Float
+					.parseFloat(precoUnitarioProduto.getText().toString()));
+			produtoVendido.setDescricao(descricaoProduto.getText().toString());
 
-		VendasDao.getInstancia().cadastrar(venda);
+			venda.setProduto(produtoVendido);
 
-		Toast.makeText(this, "Venda Cadastrada com sucesso!", Toast.LENGTH_LONG)
-				.show();
+			Cidade cidade = new Cidade();
+			cidade.setId(Long.parseLong(idCidade.getText().toString()));
+			cidade.setNome(nomeCidade.getText().toString());
+			cidade.setUf(ufCidade.getText().toString());
 
-		// Vendas agenda = new Vendas(precoVenda.getText().toString(),
-		// data.getText().toString());
-		// VendasDao.getInstancia().cadastrar(agenda);
+			venda.setCidade(cidade);
 
-		// Intent acessarLista = new Intent(this, MainActivity.class);
-		// startActivity(acessarLista);
+			VendasDao.getInstancia().cadastrar(venda);
+
+			Toast.makeText(this, "Venda Cadastrada com sucesso!",
+					Toast.LENGTH_LONG).show();
+		}
+
 	}
 
 	@Override
@@ -260,4 +264,26 @@ public class CadastroActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public boolean validaCampos() {
+
+		if (idProduto.getText().toString().equals("")) {
+			Toast.makeText(this, "Informe o Produto!", Toast.LENGTH_LONG)
+					.show();
+			return false;
+		}
+
+		if (qtd.getText().toString().equals("")) {
+			Toast.makeText(this, "Informe a Quantidade!", Toast.LENGTH_LONG)
+					.show();
+			return false;
+		}
+		if (idCidade.getText().toString().equals("")) {
+			Toast.makeText(this, "Informe a Cidade!", Toast.LENGTH_LONG).show();
+			return false;
+
+		} else {
+			return true;
+		}
+
+	}
 }

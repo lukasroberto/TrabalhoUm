@@ -32,6 +32,8 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 	private String idProduto;
 	private String descricaoProduto;
 	private String precoUnitario;
+	private String totalVenda;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 			idProduto = parametros.getString("idProduto");
 			descricaoProduto = parametros.getString("descricaoProduto");
 			precoUnitario = parametros.getString("precoUnitario");
+			totalVenda = parametros.getString("totalVenda");
 			data = parametros.getString("data");
 			qtd = parametros.getString("qtd");
 
@@ -117,6 +120,7 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 	parametros.putString("descricaoProduto", descricaoProduto);
 	parametros.putString("precoUnitario", precoUnitario);
 	parametros.putString("data", data);
+	parametros.putString("totalVenda", totalVenda);
 	parametros.putString("qtd", qtd);
 
 

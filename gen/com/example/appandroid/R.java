@@ -1107,6 +1107,7 @@ containing a value of this type.
         public static final int collapseActionView=0x7f05000d;
         public static final int data=0x7f050042;
         public static final int default_activity_button=0x7f050028;
+        public static final int descricaoProduto=0x7f05004d;
         public static final int descricao_produtos=0x7f05004a;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
@@ -1127,7 +1128,6 @@ containing a value of this type.
         public static final int imagemviewprodutos=0x7f050049;
         public static final int listData=0x7f050051;
         public static final int listMode=0x7f050001;
-        public static final int listPrecoVenda=0x7f05004d;
         public static final int listQtd=0x7f05004f;
         public static final int list_item=0x7f050029;
         public static final int lista=0x7f050057;

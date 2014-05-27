@@ -58,7 +58,7 @@ public class AdapterListView extends BaseAdapter {
     	//Vendas item = vendas.get(position);
         view = mInflater.inflate(R.layout.item_listview_vendas, null);
 
-        ((TextView) view.findViewById(R.id.listPrecoVenda)).setText(vendas.get(position).getPrecoVenda().toString());
+        ((TextView) view.findViewById(R.id.descricaoProduto)).setText(vendas.get(position).getProduto().getDescricao().toString());
         ((TextView) view.findViewById(R.id.listQtd)).setText(vendas.get(position).getQtd());
         ((TextView) view.findViewById(R.id.listData)).setText(vendas.get(position).getData().toString());
         ((ImageView) view.findViewById(R.id.imagemview)).setImageResource(R.drawable.venda);

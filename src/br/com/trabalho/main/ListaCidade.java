@@ -26,14 +26,13 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 	private ArrayList<Cidade> cidades = VendasDao.getInstancia()
 			.listarCidades();
 	private AdapterListView adapterListViewCidades;
-	
+
 	private String data;
 	private String qtd;
 	private String idProduto;
 	private String descricaoProduto;
 	private String precoUnitario;
 	private String totalVenda;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +41,7 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 
 		listView = (ListView) findViewById(R.id.lista_cidades);
 		listView.setOnItemClickListener(this);
-		
-		
+
 		Bundle parametros = getIntent().getExtras();
 
 		if (parametros != null) {
@@ -55,10 +53,10 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 			data = parametros.getString("data");
 			qtd = parametros.getString("qtd");
 
-			
-			//precoTotal = Float.parseFloat(precoUnitario)* Integer.parseInt(qtd);
+			// precoTotal = Float.parseFloat(precoUnitario)*
+			// Integer.parseInt(qtd);
 
-	}
+		}
 
 		createListView();
 	}
@@ -103,29 +101,22 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// Pega o item que foi selecionado.
 		Cidade cidade = adapterListViewCidades.getItem(arg2);
-		// Demostração
-		// Toast.makeText(this, "Você Clicou em: " + prod.getDescricao() + " "
-		// + prod.getId() + " " + prod.getPrecoUnitario(),
-		// Toast.LENGTH_LONG).show();
-		
-		
 		Intent intent = new Intent(this, CadastroActivity.class);
-		
-	Bundle parametros = new Bundle();
-	parametros.putString("idCidade", cidade.getId().toString());
-	parametros.putString("nomeCidade", cidade.getNome().toString());
-	parametros.putString("ufCidade", cidade.getUf().toString());
-	
-	parametros.putString("idProduto", idProduto);
-	parametros.putString("descricaoProduto", descricaoProduto);
-	parametros.putString("precoUnitario", precoUnitario);
-	parametros.putString("data", data);
-	parametros.putString("totalVenda", totalVenda);
-	parametros.putString("qtd", qtd);
 
+		Bundle parametros = new Bundle();
+		parametros.putString("idCidade", cidade.getId().toString());
+		parametros.putString("nomeCidade", cidade.getNome().toString());
+		parametros.putString("ufCidade", cidade.getUf().toString());
 
-	intent.putExtras(parametros);
-	startActivity(intent);
+		parametros.putString("idProduto", idProduto);
+		parametros.putString("descricaoProduto", descricaoProduto);
+		parametros.putString("precoUnitario", precoUnitario);
+		parametros.putString("data", data);
+		parametros.putString("totalVenda", totalVenda);
+		parametros.putString("qtd", qtd);
+
+		intent.putExtras(parametros);
+		startActivity(intent);
 	}
 
 	public class AdapterListView extends BaseAdapter {

@@ -17,7 +17,7 @@
         android:text="@string/precoVendaList" />
 
     <TextView
-        android:id="@+id/listPrecoVenda"
+        android:id="@+id/descricaoProduto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textView2" />
@@ -34,7 +34,7 @@
         android:id="@+id/listQtd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/listPrecoVenda"
+        android:layout_below="@+id/descricaoProduto"
         android:layout_toRightOf="@+id/textView1" />
 
     <TextView

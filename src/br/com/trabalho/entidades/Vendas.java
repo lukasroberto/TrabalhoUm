@@ -1,5 +1,9 @@
 package br.com.trabalho.entidades;
 
+import java.util.ArrayList;
+
+import br.com.trabalho.dao.VendasDao;
+
 
 public class Vendas {
 
@@ -9,6 +13,16 @@ public class Vendas {
 	private Float precoVenda;
 	private Produtos produto;
 	private Cidade cidade;
+	
+	private ArrayList<Vendas> vendas = VendasDao.getInstancia().listar();
+
+	public ArrayList<Vendas> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(ArrayList<Vendas> vendas) {
+		this.vendas = vendas;
+	}
 
 	public Long getId() {
 		return id;

@@ -1,7 +1,9 @@
 package br.com.trabalho.main;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Random;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -257,6 +259,9 @@ public class CadastroActivity extends Activity {
 			Intent irParaLista = new Intent(this, ListaVendasActivity.class);
 			startActivity(irParaLista);
 			break;
+		case R.id.criarlistaVendas:
+			preencheListaDeVendas();
+			break;
 		default:
 			break;
 		}
@@ -284,6 +289,40 @@ public class CadastroActivity extends Activity {
 		} else {
 			return true;
 		}
+
+	}
+
+	public void preencheListaDeVendas() {
+		
+		Cidade cidade = new Cidade();
+		cidade.listaDeCidades();
+		
+		Produtos prod = new Produtos();
+		prod.listDeProdutos();
+
+		Random gerar = new Random();
+		Long id = (long) 0;
+
+		for (int i = 0; i < prod.getProd().size(); i++) {
+			System.out.println(prod.getProd().get(i).getDescricao().toString());
+			id = id+1;
+			String data = "0"+id+"/05/2014";
+			
+			Vendas venda = new Vendas();
+			venda.setId(id);
+			venda.setData(data);
+			venda.setQtd(gerar.nextInt(26)+ "");
+
+			venda.setCidade(cidade.getCidades().get(i));
+			venda.setProduto(prod.getProd().get(i));
+			VendasDao.getInstancia().cadastrar(venda);
+			
+			
+			System.out.println(id);
+
+
+		}
+
 
 	}
 }

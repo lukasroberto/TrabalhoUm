@@ -5,6 +5,7 @@
     <string name="cadastrar">Salvar</string>
     <string name="action_novo">Cadastrar Venda</string>
     <string name="action_lista">Visualizar Vendas</string>
+    <string name="criarlistaVenda">Gerar Lista de Vendas</string>
     <string name="title_activity_cadastro">Cadastro de Vendas</string>
     <string name="valor">Total da Venda</string>
     <string name="qtdVendidaList">Quantidade : </string>

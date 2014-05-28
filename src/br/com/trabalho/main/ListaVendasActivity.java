@@ -1,6 +1,5 @@
 package br.com.trabalho.main;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import br.com.trabalho.dao.VendasDao;
 import br.com.trabalho.entidades.Vendas;
 
 import com.example.appandroid.R;
@@ -25,14 +23,16 @@ public class ListaVendasActivity extends Activity {
 	private ListView list;
 	private AdapterListView adapterListView;
 	private EditText editsearch;
-	private ArrayList<Vendas> vendas = VendasDao.getInstancia().listar();
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista_vendas);
 		list = (ListView) findViewById(R.id.listaVendas);
-		adapterListView = new AdapterListView(this, vendas);
+		
+		Vendas vendas = new Vendas();
+		adapterListView = new AdapterListView(this,vendas.getVendas());
 		list.setAdapter(adapterListView);
 		list.setCacheColorHint(Color.TRANSPARENT);
 		editsearch = (EditText) findViewById(R.id.search);

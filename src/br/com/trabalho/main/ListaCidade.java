@@ -17,14 +17,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import br.com.trabalho.dao.VendasDao;
 import br.com.trabalho.entidades.Cidade;
+import br.com.trabalho.entidades.Produtos;
 
 import com.example.appandroid.R;
 
 public class ListaCidade extends Activity implements OnItemClickListener {
 
 	private ListView listView;
-	private ArrayList<Cidade> cidades = VendasDao.getInstancia()
-			.listarCidades();
 	private AdapterListView adapterListViewCidades;
 
 	private String data;
@@ -63,34 +62,11 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 
 	private void createListView() {
 
-		if (cidades.size() == 0) {
-			Cidade cidade1 = new Cidade();
-			cidade1.setId(1l);
-			cidade1.setUf("SP");
-			cidade1.setNome("São joão da Boa Vista");
-			VendasDao.getInstancia().cadastrarCidade(cidade1);
-
-			Cidade cidade2 = new Cidade();
-			cidade2.setId(2l);
-			cidade2.setUf("SP");
-			cidade2.setNome("Vargem Grande do Sul");
-			VendasDao.getInstancia().cadastrarCidade(cidade2);
-
-			Cidade cidade3 = new Cidade();
-			cidade3.setId(3l);
-			cidade3.setUf("MG");
-			cidade3.setNome("Andradas");
-			VendasDao.getInstancia().cadastrarCidade(cidade3);
-
-			Cidade cidade4 = new Cidade();
-			cidade4.setId(4l);
-			cidade4.setUf("SP");
-			cidade4.setNome("Aguai");
-			VendasDao.getInstancia().cadastrarCidade(cidade4);
-		}
-
+		Cidade cidade = new Cidade();
+		cidade.listaDeCidades();
+		
 		// Cria o adapter
-		adapterListViewCidades = new AdapterListView(this, cidades);
+		adapterListViewCidades = new AdapterListView(this, cidade.getCidades());
 
 		// Define o Adapter
 		listView.setAdapter(adapterListViewCidades);

@@ -1,8 +1,8 @@
 package br.com.trabalho.main;
 
-import java.util.ArrayList;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 import java.util.Random;
 
 import android.app.Activity;
@@ -10,6 +10,7 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.ParseException;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -205,14 +206,25 @@ public class CadastroActivity extends Activity {
 		startActivity(irParaCidades);
 	}
 
-	public void cadastrarVenda(View view) {
+	public void cadastrarVenda(View view) throws java.text.ParseException {
 
 		if (validaCampos()) {
 
 			Vendas venda = new Vendas();
 			venda.setPrecoVenda(Float.parseFloat(precoVenda.getText()
 					.toString()));
-			venda.setData(dataSelecionada.getText().toString());
+
+			try {
+				String data = dataSelecionada.getText().toString();
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(sdf.parse(data));
+				venda.setData(cal);
+
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+
 			venda.setQtd(qtd.getText().toString());
 
 			Produtos produtoVendido = new Produtos();
@@ -260,7 +272,11 @@ public class CadastroActivity extends Activity {
 			startActivity(irParaLista);
 			break;
 		case R.id.criarlistaVendas:
-			preencheListaDeVendas();
+			VendasDao.getInstancia().preencheListaDeVendas();
+			break;
+		case R.id.grafico_vendas:
+			Intent irParaGraficoVendas = new Intent(this, GraficoVendas.class);
+			startActivity(irParaGraficoVendas);
 			break;
 		default:
 			break;
@@ -289,34 +305,6 @@ public class CadastroActivity extends Activity {
 		} else {
 			return true;
 		}
-
-	}
-
-	public void preencheListaDeVendas() {
-		
-		Cidade cidade = new Cidade();
-		cidade.listaDeCidades();
-		
-		Produtos prod = new Produtos();
-		prod.listDeProdutos();
-
-		Random gerar = new Random();
-		Long id = (long) 0;
-
-		for (int i = 0; i < 100; i++) {		
-			String data = gerar.nextInt(31)+"/05/2014";
-			
-			Vendas venda = new Vendas();
-			venda.setId(id);
-			venda.setData(data);
-			venda.setQtd(gerar.nextInt(20)+ "");
-
-			venda.setCidade(cidade.getCidades().get(gerar.nextInt(9)));
-			venda.setProduto(prod.getProd().get(gerar.nextInt(9)));
-			VendasDao.getInstancia().cadastrar(venda);
-
-		}
-
 
 	}
 }

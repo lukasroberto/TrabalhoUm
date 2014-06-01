@@ -67,31 +67,31 @@ public class Cidade {
 			cidade5.setId(5l);
 			cidade5.setUf("SP");
 			cidade5.setNome("Aguai");
-			VendasDao.getInstancia().cadastrarCidade(cidade4);
+			VendasDao.getInstancia().cadastrarCidade(cidade5);
 			
 			Cidade cidade6 = new Cidade();
 			cidade6.setId(6l);
 			cidade6.setUf("SP");
 			cidade6.setNome("Janto Antonio do Jardiim");
-			VendasDao.getInstancia().cadastrarCidade(cidade4);
+			VendasDao.getInstancia().cadastrarCidade(cidade6);
 			
 			Cidade cidade7 = new Cidade();
 			cidade7.setId(7l);
 			cidade7.setUf("SP");
 			cidade7.setNome("Aguas da Prata");
-			VendasDao.getInstancia().cadastrarCidade(cidade4);
+			VendasDao.getInstancia().cadastrarCidade(cidade7);
 			
 			Cidade cidade8 = new Cidade();
 			cidade8.setId(8l);
 			cidade8.setUf("SP");
 			cidade8.setNome("Limeira");
-			VendasDao.getInstancia().cadastrarCidade(cidade4);
+			VendasDao.getInstancia().cadastrarCidade(cidade8);
 			
 			Cidade cidade9 = new Cidade();
 			cidade9.setId(9l);
 			cidade9.setUf("MG");
 			cidade9.setNome("Poços de Caldas");
-			VendasDao.getInstancia().cadastrarCidade(cidade4);
+			VendasDao.getInstancia().cadastrarCidade(cidade9);
 		}
 	}
 

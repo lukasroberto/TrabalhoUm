@@ -6,6 +6,7 @@
     <string name="action_novo">Cadastrar Venda</string>
     <string name="action_lista">Visualizar Vendas</string>
     <string name="criarlistaVenda">Gerar Lista de Vendas</string>
+    <string name="grafico_vendas">Relatório de Vendas</string>
     <string name="title_activity_cadastro">Cadastro de Vendas</string>
     <string name="valor">Total da Venda</string>
     <string name="qtdVendidaList">Quantidade : </string>
@@ -27,5 +28,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_lista_produtos">ListaProdutos</string>
     <string name="title_activity_lista_cidade">ListaCidade</string>
+    <string name="title_activity_grafico">Grafico</string>
 
 </resources>

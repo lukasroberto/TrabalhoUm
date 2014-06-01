@@ -1,15 +1,17 @@
 package br.com.trabalho.entidades;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import br.com.trabalho.dao.VendasDao;
+import br.com.trabalho.main.RowGoogleChart;
 
 
-public class Vendas {
+public class Vendas implements RowGoogleChart {
 
 	private Long id;
 	private String qtd;
-	private String data;
+	private Calendar data;
 	private Float precoVenda;
 	private Produtos produto;
 	private Cidade cidade;
@@ -40,11 +42,17 @@ public class Vendas {
 		this.qtd = qtd;
 	}
 
+
+
 	public String getData() {
-		return data;
+		int dia = data.get(Calendar.DAY_OF_MONTH);
+		int mes = data.get(Calendar.MONTH) + 1;
+		int ano = data.get(Calendar.YEAR);
+		
+		return dia + "/" + mes +"/"+ ano;
 	}
 
-	public void setData(String data) {
+	public void setData(Calendar data) {
 		this.data = data;
 	}
 
@@ -71,5 +79,19 @@ public class Vendas {
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
+	
+	public void VendasGrafico(Calendar data, Float precoVenda) {		
+		this.data = data;
+		this.precoVenda = precoVenda;
+	}
+	
+	@Override
+	public String getRow() {
+		int mes = data.get(Calendar.MONTH) + 1;
+		int ano = data.get(Calendar.YEAR);
+		return "['"+mes+"-"+ano+"', "+precoVenda+"],";
+	}
+
+	
 
 }

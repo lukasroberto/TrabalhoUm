@@ -67,31 +67,31 @@ public class Produtos {
 		produto5.setId(5l);
 		produto5.setPrecoUnitario(3.3f);
 		produto5.setDescricao("Pecego");
-		VendasDao.getInstancia().cadastrarProduto(produto4);
+		VendasDao.getInstancia().cadastrarProduto(produto5);
 
 		Produtos produto6 = new Produtos();
 		produto6.setId(6l);
 		produto6.setPrecoUnitario(2.7f);
 		produto6.setDescricao("Uva");
-		VendasDao.getInstancia().cadastrarProduto(produto4);
+		VendasDao.getInstancia().cadastrarProduto(produto6);
 		
 		Produtos produto7 = new Produtos();
 		produto7.setId(7l);
 		produto7.setPrecoUnitario(5.2f);
 		produto7.setDescricao("Abacaxi");
-		VendasDao.getInstancia().cadastrarProduto(produto4);
+		VendasDao.getInstancia().cadastrarProduto(produto7);
 		
 		Produtos produto8 = new Produtos();
 		produto8.setId(8l);
 		produto8.setPrecoUnitario(2.2f);
 		produto8.setDescricao("Laranja");
-		VendasDao.getInstancia().cadastrarProduto(produto4);
+		VendasDao.getInstancia().cadastrarProduto(produto8);
 		
 		Produtos produto9 = new Produtos();
 		produto9.setId(4l);
 		produto9.setPrecoUnitario(1.2f);
 		produto9.setDescricao("Jaca");
-		VendasDao.getInstancia().cadastrarProduto(produto4);
+		VendasDao.getInstancia().cadastrarProduto(produto9);
 	}
 }
 

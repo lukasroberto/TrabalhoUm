@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import br.com.trabalho.controller.AdapterListView;
 import br.com.trabalho.entidades.Vendas;
 
 import com.example.appandroid.R;

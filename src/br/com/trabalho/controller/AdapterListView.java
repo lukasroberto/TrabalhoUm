@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.trabalho.main;
+package br.com.trabalho.controller;
 
 import java.util.ArrayList;
 import java.util.List;

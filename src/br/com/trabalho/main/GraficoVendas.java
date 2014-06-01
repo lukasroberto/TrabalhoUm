@@ -2,6 +2,9 @@ package br.com.trabalho.main;
 
 import java.util.List;
 
+import br.com.trabalho.controller.DadosGrafico;
+import br.com.trabalho.controller.Grafico;
+import br.com.trabalho.controller.RowGoogleChart;
 import br.com.trabalho.dao.VendasDao;
 
 import com.example.appandroid.R;

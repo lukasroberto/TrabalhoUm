@@ -1,4 +1,4 @@
-package br.com.trabalho.main;
+package br.com.trabalho.controller;
 
 public enum DadosGrafico {
 

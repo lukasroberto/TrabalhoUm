@@ -3,8 +3,8 @@ package br.com.trabalho.entidades;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import br.com.trabalho.controller.RowGoogleChart;
 import br.com.trabalho.dao.VendasDao;
-import br.com.trabalho.main.RowGoogleChart;
 
 
 public class Vendas implements RowGoogleChart {

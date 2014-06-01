@@ -1096,7 +1096,6 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05005d;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1246,10 +1245,7 @@ containing a value of this type.
         public static final int cadastro=0x7f0c0000;
         public static final int filtra_vendas=0x7f0c0001;
         public static final int grafico=0x7f0c0002;
-        public static final int lista_cidade=0x7f0c0003;
-        public static final int lista_produtos=0x7f0c0004;
-        public static final int lista_vendas=0x7f0c0005;
-        public static final int main=0x7f0c0006;
+        public static final int lista_vendas=0x7f0c0003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

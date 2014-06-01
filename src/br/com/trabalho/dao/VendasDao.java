@@ -11,10 +11,10 @@ import com.example.appandroid.R;
 import android.net.ParseException;
 import android.widget.Button;
 import android.widget.Toast;
+import br.com.trabalho.controller.RowGoogleChart;
 import br.com.trabalho.entidades.Cidade;
 import br.com.trabalho.entidades.Produtos;
 import br.com.trabalho.entidades.Vendas;
-import br.com.trabalho.main.RowGoogleChart;
 
 public class VendasDao {
 	private static VendasDao instancia;

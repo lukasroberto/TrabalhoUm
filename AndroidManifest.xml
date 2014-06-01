@@ -3,7 +3,7 @@
     package="com.example.appandroid"
     android:versionCode="1"
     android:versionName="1.0" >
-    
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
@@ -19,7 +19,8 @@
         </activity>
         <activity
             android:name="br.com.trabalho.main.CadastroActivity"
-            android:label="@string/title_activity_cadastro" >
+            android:label="@string/title_activity_cadastro"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +29,8 @@
         </activity>
         <activity
             android:name="br.com.trabalho.main.ListaVendasActivity"
-            android:label="@string/title_activity_lista_vendas_activit" >
+            android:label="@string/title_activity_lista_vendas_activit"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="br.com.trabalho.main.ListaProdutos"
@@ -40,12 +42,17 @@
         </activity>
         <activity
             android:name="br.com.trabalho.main.GraficoVendas"
-            android:screenOrientation="landscape"
-            android:label="@string/title_activity_grafico" >
+            android:label="@string/title_activity_grafico"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="br.com.trabalho.main.FiltraVendas"
+            android:label="@string/title_activity_filtra_vendas"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
-    
-        <uses-permission android:name="android.permission.INTERNET"></uses-permission>  
-    
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
 
 </manifest>

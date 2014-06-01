@@ -1,7 +1,4 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.appandroid.Grafico" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
         android:id="@+id/novo"
@@ -15,5 +12,12 @@
         android:showAsAction="never"
         android:title="@string/action_lista"
        />
+                <item
+        android:id="@+id/criarlistaVendas"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/criarlistaVenda"
+       />
+   
 
 </menu>

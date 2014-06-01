@@ -1,0 +1,66 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:shrinkColumns="*"
+    android:stretchColumns="*" >
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#dedede"
+            android:text="@string/data_ini"
+            android:textColor="#000" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/data_ini"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#ffffff"
+            android:onClick="selecionarData"
+             />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#dedede"
+            android:text="@string/data_fim"
+            android:textColor="#000" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/data_fim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#ffffff"
+            android:onClick="selecionarData"
+             />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/cadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="5"
+            android:background="#dedede"
+            android:onClick="relatoriografico"
+            android:text="@string/filtrar" />
+    </TableRow>
+
+</TableLayout>

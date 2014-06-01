@@ -264,8 +264,8 @@ public class CadastroActivity extends Activity {
 			VendasDao.getInstancia().preencheListaDeVendas();
 			break;
 		case R.id.grafico_vendas:
-			Intent irParaGraficoVendas = new Intent(this, GraficoVendas.class);
-			startActivity(irParaGraficoVendas);
+			Intent irParaFiltroVendas = new Intent(this, FiltraVendas.class);
+			startActivity(irParaFiltroVendas);
 			break;
 		default:
 			break;

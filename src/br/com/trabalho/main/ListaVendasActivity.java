@@ -81,9 +81,9 @@ public class ListaVendasActivity extends Activity {
 			Intent irParaCadastro = new Intent(this, CadastroActivity.class);
 			startActivity(irParaCadastro);
 			break;
-		case R.id.lista:
-			Intent irParaLista = new Intent(this, ListaVendasActivity.class);
-			startActivity(irParaLista);
+		case R.id.grafico_vendas:
+			Intent irParaFiltroVendas = new Intent(this, FiltraVendas.class);
+			startActivity(irParaFiltroVendas);
 			break;
 		default:
 			break;

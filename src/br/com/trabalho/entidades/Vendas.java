@@ -50,6 +50,10 @@ public class Vendas implements RowGoogleChart {
 		return dia + "/" + mes +"/"+ ano;
 	}
 
+	public Calendar getDataCalendar() {
+		return data;
+	}
+
 	public void setData(Calendar data) {
 		this.data = data;
 	}

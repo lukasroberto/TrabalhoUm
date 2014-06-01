@@ -6,13 +6,14 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-import org.xml.sax.DTDHandler;
+import com.example.appandroid.R;
 
 import android.net.ParseException;
+import android.widget.Button;
+import android.widget.Toast;
 import br.com.trabalho.entidades.Cidade;
 import br.com.trabalho.entidades.Produtos;
 import br.com.trabalho.entidades.Vendas;
-import br.com.trabalho.main.CadastroActivity;
 import br.com.trabalho.main.RowGoogleChart;
 
 public class VendasDao {
@@ -65,6 +66,41 @@ public class VendasDao {
 		cidades.add(cidade);
 	}
 
+	public void filtraListaDeVendas(String dataIni, String dataFim) {
+		
+		if(vendas.isEmpty()){
+			preencheListaDeVendas();
+		}
+
+		dataFim = dataFim.toString();
+		dataIni = dataIni.toString();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar cal1 = Calendar.getInstance();
+		try {
+			cal1.setTime(sdf.parse(dataIni));
+		} catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Calendar cal2 = Calendar.getInstance();
+		try {
+			cal2.setTime(sdf.parse(dataFim));
+		} catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		for (int cont = 0; cont < vendas.size(); cont++) {
+			if ((vendas.get(cont).getDataCalendar().before(cal1))
+					|| (vendas.get(cont).getDataCalendar().after(cal2))) {
+				
+			} else {
+				graficoVendas.add(vendas.get(cont));
+			}
+		}
+	}
+
 	public void preencheListaDeVendas() {
 
 		Cidade cidade = new Cidade();
@@ -80,7 +116,8 @@ public class VendasDao {
 			id = id + 1;
 			int idProduto = gerar.nextInt(9);
 			int idCidade = gerar.nextInt(9);
-			Float precoUnicatio = (prod.getProd().get(idProduto).getPrecoUnitario());
+			Float precoUnicatio = (prod.getProd().get(idProduto)
+					.getPrecoUnitario());
 			String qtdVenda = gerar.nextInt(20) + "";
 			Float precoVenda = precoUnicatio * Integer.parseInt(qtdVenda);
 
@@ -106,7 +143,7 @@ public class VendasDao {
 			}
 
 			cadastrar(venda);
-			graficoVendas.add(venda);
+			// graficoVendas.add(venda);
 
 		}
 

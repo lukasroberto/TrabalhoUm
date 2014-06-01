@@ -137,15 +137,12 @@ public class CadastroActivity extends Activity {
 	}
 
 	public void valorTotalVenda(int qtd) {
-		Float totalVenda = Float.parseFloat(precoUnitarioProduto.getText()
-				.toString()) * qtd;
-
+		Float totalVenda = Float.parseFloat(precoUnitarioProduto.getText().toString()) * qtd;
 		TextView precoVenda = (TextView) findViewById(R.id.precoVenda);
 		precoVenda.setText(totalVenda.toString());
 	}
 
 	public void selecionarData(View view) {
-
 		showDialog(view.getId());
 	}
 
@@ -179,12 +176,10 @@ public class CadastroActivity extends Activity {
 		parametros.putString("nomeCidade", nomeCidade.getText().toString());
 		parametros.putString("ufCidade", ufCidade.getText().toString());
 		parametros.putString("qtd", qtd.getText().toString());
-		parametros.putString("precoUnitario", precoUnitarioProduto.getText()
-				.toString());
+		parametros.putString("precoUnitario", precoUnitarioProduto.getText().toString());
 		parametros.putString("data", dataSelecionada.getText().toString());
 
 		irParaProdutos.putExtras(parametros);
-
 		startActivity(irParaProdutos);
 	}
 
@@ -193,16 +188,13 @@ public class CadastroActivity extends Activity {
 
 		Bundle parametros = new Bundle();
 		parametros.putString("idProduto", idProduto.getText().toString());
-		parametros.putString("descricaoProduto", descricaoProduto.getText()
-				.toString());
+		parametros.putString("descricaoProduto", descricaoProduto.getText().toString());
 		parametros.putString("qtd", qtd.getText().toString());
-		parametros.putString("precoUnitario", precoUnitarioProduto.getText()
-				.toString());
+		parametros.putString("precoUnitario", precoUnitarioProduto.getText().toString());
 		parametros.putString("data", dataSelecionada.getText().toString());
 		parametros.putString("totalVenda", precoVenda.getText().toString());
 
 		irParaCidades.putExtras(parametros);
-
 		startActivity(irParaCidades);
 	}
 
@@ -228,10 +220,8 @@ public class CadastroActivity extends Activity {
 			venda.setQtd(qtd.getText().toString());
 
 			Produtos produtoVendido = new Produtos();
-			produtoVendido
-					.setId(Long.parseLong(idProduto.getText().toString()));
-			produtoVendido.setPrecoUnitario(Float
-					.parseFloat(precoUnitarioProduto.getText().toString()));
+			produtoVendido.setId(Long.parseLong(idProduto.getText().toString()));
+			produtoVendido.setPrecoUnitario(Float.parseFloat(precoUnitarioProduto.getText().toString()));
 			produtoVendido.setDescricao(descricaoProduto.getText().toString());
 
 			venda.setProduto(produtoVendido);
@@ -245,8 +235,7 @@ public class CadastroActivity extends Activity {
 
 			VendasDao.getInstancia().cadastrar(venda);
 
-			Toast.makeText(this, "Venda Cadastrada com sucesso!",
-					Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Venda Cadastrada com sucesso!",Toast.LENGTH_LONG).show();
 		}
 
 	}

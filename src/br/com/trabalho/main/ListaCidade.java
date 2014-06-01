@@ -52,9 +52,6 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 			data = parametros.getString("data");
 			qtd = parametros.getString("qtd");
 
-			// precoTotal = Float.parseFloat(precoUnitario)*
-			// Integer.parseInt(qtd);
-
 		}
 
 		createListView();
@@ -63,15 +60,11 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 	private void createListView() {
 
 		Cidade cidade = new Cidade();
-		cidade.listaDeCidades();
+		VendasDao.getInstancia().listaDeCidades();
 		
-		// Cria o adapter
 		adapterListViewCidades = new AdapterListView(this, cidade.getCidades());
-
-		// Define o Adapter
 		listView.setAdapter(adapterListViewCidades);
-		// Cor quando a lista é selecionada para ralagem.
-		listView.setCacheColorHint(Color.TRANSPARENT);
+		listView.setCacheColorHint(Color.BLACK);
 	}
 
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -83,7 +76,6 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 		parametros.putString("idCidade", cidade.getId().toString());
 		parametros.putString("nomeCidade", cidade.getNome().toString());
 		parametros.putString("ufCidade", cidade.getUf().toString());
-
 		parametros.putString("idProduto", idProduto);
 		parametros.putString("descricaoProduto", descricaoProduto);
 		parametros.putString("precoUnitario", precoUnitario);
@@ -103,7 +95,7 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 		public AdapterListView(Context context, ArrayList<Cidade> cidade) {
 			// Itens que preencheram o listview
 			this.cidades = cidade;
-			// responsavel por pegar o Layout do item.
+
 			mInflater = LayoutInflater.from(context);
 		}
 
@@ -139,16 +131,12 @@ public class ListaCidade extends Activity implements OnItemClickListener {
 		public View getView(int position, View view, ViewGroup parent) {
 			// Pega o item de acordo com a posção.
 			Cidade cidade = cidades.get(position);
-			// infla o layout para podermos preencher os dados
+
 			view = mInflater.inflate(R.layout.item_listview_cidade, null);
 
 			// atravez do layout pego pelo LayoutInflater, pegamos cada id
-			// relacionado
-			// ao item e definimos as informações.
 			((TextView) view.findViewById(R.id.nome_cidade)).setText(cidade
 					.getNome());
-			// ((ImageView)
-			// view.findViewById(R.id.imagemview)).setImageResource(R.drawable.venda);
 
 			return view;
 		}

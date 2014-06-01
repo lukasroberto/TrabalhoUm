@@ -41,9 +41,7 @@ public class Vendas implements RowGoogleChart {
 	public void setQtd(String qtd) {
 		this.qtd = qtd;
 	}
-
-
-
+	
 	public String getData() {
 		int dia = data.get(Calendar.DAY_OF_MONTH);
 		int mes = data.get(Calendar.MONTH) + 1;
@@ -89,7 +87,7 @@ public class Vendas implements RowGoogleChart {
 	public String getRow() {
 		int mes = data.get(Calendar.MONTH) + 1;
 		int ano = data.get(Calendar.YEAR);
-		return "['"+mes+"-"+ano+"', "+precoVenda+"],";
+		return "['"+mes+"/"+ano+"', "+precoVenda+"],";
 	}
 
 	

@@ -1299,13 +1299,13 @@ containing a value of this type.
         public static final int dataList=0x7f0a0023;
         public static final int data_fim=0x7f0a0021;
         public static final int data_ini=0x7f0a0020;
+        public static final int descricao_produto=0x7f0a0018;
         public static final int digiteData=0x7f0a0016;
         public static final int filtrar=0x7f0a0022;
         public static final int grafico_vendas=0x7f0a0012;
         public static final int hello_world=0x7f0a0025;
         public static final int id_produto=0x7f0a001a;
         public static final int precoUnitario=0x7f0a0019;
-        public static final int precoVendaList=0x7f0a0018;
         public static final int produto_selecionado=0x7f0a001d;
         public static final int qtd=0x7f0a0017;
         public static final int qtdVendidaList=0x7f0a0015;

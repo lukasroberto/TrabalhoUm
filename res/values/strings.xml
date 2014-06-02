@@ -9,10 +9,10 @@
     <string name="grafico_vendas">Relatório de Vendas</string>
     <string name="title_activity_cadastro">Cadastro de Vendas</string>
     <string name="valor">Total da Venda</string>
-    <string name="qtdVendidaList">Quantidade : </string>
+    <string name="qtdVendidaList">Quantidade: </string>
     <string name="digiteData">Digite a Data para filtrar</string>
     <string name="qtd">Quantidade</string>
-    <string name="precoVendaList">Preço : </string>
+    <string name="descricao_produto">Produto: </string>
     <string name="precoUnitario">Preço Un</string>
     <string name="id_produto">Código</string>
     <string name="selecionar">Selecionar</string>
@@ -23,7 +23,7 @@
     <string name="data_ini">Data Inicial</string>
     <string name="data_fim">Data Final</string>
     <string name="filtrar">Filtrar</string>
-    <string name="dataList">Data da Venda : </string>
+    <string name="dataList">Data da Venda: </string>
     <string name="title_activity_lista_vendas_activit">Vendas Realizadas</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Menu</string>
